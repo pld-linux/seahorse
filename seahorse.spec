@@ -6,15 +6,13 @@ Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/seahorse/%{name}-%{version}.tar.gz
-Patch0:		%{name}-am15.patch
-Patch1:		%{name}-pixmapsdir.patch
 URL:		http://seahorse.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	gpgme-devel
 BuildRequires:	intltool
-BuildRequires:	libglade-devel
+BuildRequires:	libglade2-devel
 BuildRequires:	libgnomeui-devel
 Requires(post,postun):	/usr/bin/scrollkeeper-update
 Requires(post):	GConf2
@@ -38,8 +36,6 @@ kluczami jest prowadzone przez intuicyjny interfejs.
 
 %prep
 %setup -q
-#%patch0 -p1
-#%patch1 -p1
 
 %build
 rm -f missing

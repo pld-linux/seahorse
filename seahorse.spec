@@ -8,6 +8,9 @@ Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/0.7/%{name}-%{version}.tar.bz2
 # Source0-md5:	9cebb904b22d739dc527443e417c0f78
 URL:		http://seahorse.sourceforge.net/
+Source1:	%{name}-pl.po
+Patch0:		%{name}-desktop.patch
+Patch1:		%{name}-locale.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	eel-devel >= 2.3.7-2
@@ -41,6 +44,11 @@ kluczami jest prowadzone przez intuicyjny interfejs.
 
 %prep
 %setup -q
+%patch0 -p1
+%patch1 -p1
+
+install %{SOURCE1} po/pl.po
+mv po/no.po po/nb.po
 
 %build
 rm -f missing

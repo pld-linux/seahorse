@@ -6,16 +6,17 @@
 Summary:	SeaHorse - A GNOME front end for GnuPG
 Summary(pl):	SeaHorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	0.7.5
+Version:	0.7.6
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/seahorse/0.7/%{name}-%{version}.tar.bz2
-# Source0-md5:	aa113297dbc5525a4853e73bedb9af45
+# Source0-md5:	b0a0942faabc1dd9367b4bea9cdd9c4a
 URL:		http://seahorse.sourceforge.net/
 Patch0:		%{name}-locale.patch
 Patch1:		%{name}-install.patch
 Patch2:		%{name}-desktop.patch
+Patch3:		%{name}-versions.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	eel-devel >= 2.8.0
@@ -53,6 +54,7 @@ kluczami jest prowadzone przez intuicyjny interfejs.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 mv -f po/{no,nb}.po
 
@@ -105,7 +107,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}
 %{_datadir}/mime/packages/seahorse.xml
 %{_datadir}/mime-info/%{name}.*
-%{_datadir}/gnome/capplets/*.desktop
 %{_pixmapsdir}/*
 # separate?
 %attr(755,root,root) %{_libdir}/gedit-2/plugins/libseahorse-pgp.so

@@ -11,7 +11,7 @@ Version:	0.7.4
 Release:	0.5
 License:	GPL
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/0.7/%{name}-%{version}.tar.bz2
+Source0:	http://ftp.gnome.org/pub/gnome/sources/seahorse/0.7/%{name}-%{version}.tar.bz2
 # Source0-md5:	7feeb26977ee4631c9a3f142f5f8aa18
 URL:		http://seahorse.sourceforge.net/
 Patch0:		%{name}-locale.patch
@@ -23,7 +23,7 @@ BuildRequires:	automake
 BuildRequires:	eel-devel >= 2.8.0
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-mime-data-devel
-BuildRequires:	gpgme-devel >= 1.0.0
+BuildRequires:	gpgme-devel >= 1:1.0.0
 BuildRequires:	intltool
 BuildRequires:	libglade2-devel
 BuildRequires:	libgnomeui-devel >= 2.8.0
@@ -57,7 +57,6 @@ kluczami jest prowadzone przez intuicyjny interfejs.
 mv po/{no,nb}.po
 
 %build
-rm -f missing
 intltoolize --copy --force
 glib-gettextize --copy --force
 %{__libtoolize}
@@ -75,8 +74,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %find_lang %{name} --with-gnome
 
-# Remove useless stati file
-rm $RPM_BUILD_ROOT%{_libdir}/bonobo/*.a
+rm -f $RPM_BUILD_ROOT%{_libdir}/bonobo/*.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -93,7 +91,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/seahorse
 %attr(755,root,root) %{_bindir}/seahorse-pgp-preferences
 %attr(755,root,root) %{_libdir}/bonobo/*.so
-%{_libdir}/bonobo/*.la
 %{_libdir}/bonobo/servers/*.server
 %{_sysconfdir}/gconf/schemas/*
 %{_desktopdir}/*.desktop

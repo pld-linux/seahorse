@@ -10,6 +10,7 @@ URL:		http://seahorse.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
+BuildRequires:	gnome-mime-data-devel
 BuildRequires:	gpgme-devel >= 0.3.14
 BuildRequires:	intltool
 BuildRequires:	libglade2-devel

@@ -1,6 +1,6 @@
 Summary:	SeaHorse - A Gnome front end for GnuPG 
 Name:		seahorse
-Version:	0.4.5
+Version:	0.4.6
 Release:	1
 License:	GPL
 Group:		X11/Applications
@@ -14,11 +14,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_mandir		%{_prefix}/man
 
 %description
-Seahorse is a Gnome front end for GnuPG - the Gnu Privacy Guard program. It
-is a tool for secure communications and data storage. Data encryption and
-digital signature creation can easily be performed through a GUI and Key
-Management operations can easily be carried out through an intuitive
-interface. Both English and Japanese is support is provided.
+Seahorse is a Gnome front end for GnuPG - the Gnu Privacy Guard
+program. It is a tool for secure communications and data storage. Data
+encryption and digital signature creation can easily be performed
+through a GUI and Key Management operations can easily be carried out
+through an intuitive interface. Both English and Japanese is support
+is provided.
 
 %prep
 %setup -q
@@ -34,7 +35,7 @@ rm -rf $RPM_BUILD_ROOT
 
 make install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	Applicationsdir=%{_applnkdir}/Applications
+	Applicationsdir=%{_applnkdir}/Utilities
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man?/* \
 	AUTHORS ChangeLog NEWS README
@@ -50,5 +51,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %attr(755,root,root) %{_bindir}/seahorse
 %{_mandir}/man?/*
-%{_applnkdir}/Applications/*
+%{_applnkdir}/Utilities/*
 %{_datadir}/pixmaps/seahorse

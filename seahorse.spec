@@ -5,7 +5,7 @@ Release:	1
 License:	GPL
 Group:		X11/Applications
 Group(pl):	X11/Aplikacje
-Source0:	http://seahorse.sourceforge.net/%{name}-%{version}.tar.gz
+Source0:	ftp://download.sourceforge.net/pub/sourceforge/%{name}-%{version}.tar.gz
 URL:		http://seahorse.sourceforge.net/
 BuildRequires:	gettext-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)

@@ -9,6 +9,7 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/0.7/%{name}-%{version}.t
 URL:		http://seahorse.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	eel-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-mime-data-devel
 BuildRequires:	gpgme-devel >= 0.3.14
@@ -16,7 +17,7 @@ BuildConflicts:	gpgme-devel >= 0.4.0
 BuildRequires:	intltool
 BuildRequires:	libglade2-devel
 BuildRequires:	libgnomeui-devel
-BuildRequires:	eel-devel
+BuildRequires:	libtool
 Requires(post,postun):	/usr/bin/scrollkeeper-update
 Requires(post):	GConf2
 Requires:	gnupg >= 1.2.1

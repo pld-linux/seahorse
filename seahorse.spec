@@ -16,7 +16,7 @@ URL:		http://seahorse.sourceforge.net/
 Patch0:		%{name}-locale.patch
 Patch1:		%{name}-install.patch
 Patch2:		%{name}-desktop.patch
-Patch3:		%{name}-versions.patch
+Patch3:		%{name}-gedit.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	eel-devel >= 2.8.0

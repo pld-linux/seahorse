@@ -456,7 +456,7 @@ msgstr "ElGamal (tylko szyfrowanie)"
 #: src/seahorse-add-subkey.glade.h:3 src/seahorse-generate.glade.h:6
 #: src/seahorse-key-properties.c:364
 msgid "Expiration Date:"
-msgstr "Data wa¿no¶ci
+msgstr "Data wa¿no¶ci:"
 
 #: src/seahorse-add-subkey.glade.h:4
 msgid "Generate a new subkey"

@@ -48,7 +48,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc *.gz
 
-%{_bindir}/seahorse
+%attr(755,root,root) %{_bindir}/seahorse
 %{_mandir}/man?/*
 %{_applnkdir}/Applications/*
 %{_datadir}/pixmaps/seahorse

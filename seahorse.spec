@@ -1,6 +1,5 @@
 #
 # TODO
-#	- fix %%install stage (stripping is broken)
 #	- add generation of mime database in post
 #	- anything else?
 
@@ -17,7 +16,8 @@ URL:		http://seahorse.sourceforge.net/
 Patch0:		%{name}-locale.patch
 Patch1:		%{name}-gedit28.patch
 Patch2:		%{name}-install.patch
-#Patch3:		%{name}-desktop.patch //do we really need it?
+Patch3:		%{name}-pic.patch
+Patch4:		%{name}-desktop.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	eel-devel >= 2.8.0
@@ -54,8 +54,10 @@ kluczami jest prowadzone przez intuicyjny interfejs.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-#%patch3 -p1
-mv po/{no,nb}.po
+%patch3 -p1
+%patch4 -p1
+
+mv -f po/{no,nb}.po
 
 %build
 intltoolize --copy --force
@@ -64,7 +66,9 @@ glib-gettextize --copy --force
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-%configure
+%configure \
+	--disable-schemas-install \
+	--disable-static
 %{__make}
 
 %install
@@ -75,7 +79,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %find_lang %{name} --with-gnome
 
-rm -f $RPM_BUILD_ROOT%{_libdir}/bonobo/*.la
+rm -f $RPM_BUILD_ROOT%{_libdir}/{bonobo,gedit-2/plugins}/*.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -90,6 +94,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/seahorse
+%attr(755,root,root) %{_bindir}/seahorse-agent
 %attr(755,root,root) %{_bindir}/seahorse-pgp-preferences
 %attr(755,root,root) %{_libdir}/bonobo/*.so
 %{_libdir}/bonobo/servers/*.server
@@ -97,6 +102,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/*.desktop
 %{_omf_dest_dir}/%{name}
 %{_datadir}/%{name}
+%{_datadir}/mime/packages/seahorse.xml
 %{_datadir}/mime-info/%{name}.*
 %{_datadir}/gnome/capplets/*.desktop
 %{_pixmapsdir}/*
+# separate?
+%attr(755,root,root) %{_libdir}/gedit-2/plugins/libseahorse-pgp.so
+%{_libdir}/gedit-2/plugins/seahorse-pgp.gedit-plugin

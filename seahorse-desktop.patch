@@ -36,7 +36,7 @@ diff -ur seahorse-0.7.3.orig/src/seahorse.desktop.in seahorse-0.7.3/src/seahorse
  Type=Application
  Icon=seahorse.png
 -Categories=Application;Cryptography;
-+Categories=GTK;GNOME;Settings;
++Categories=GTK;GNOME;Utility;
  StartupNotify=true
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=seahorse

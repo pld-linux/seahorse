@@ -1,0 +1,10 @@
+--- seahorse-0.7.4/plugins/nautilus/Makefile.am.orig	2004-10-21 21:35:58.410007152 +0200
++++ seahorse-0.7.4/plugins/nautilus/Makefile.am	2004-10-21 21:36:04.699051072 +0200
+@@ -26,7 +26,6 @@
+ mime_DATA = seahorse.xml
+ 
+ install-data-local:
+-	update-mime-database $(datadir)/mime/
+ 	
+ @INTLTOOL_DESKTOP_RULE@
+ desktopdir = $(datadir)/control-center-2.0/capplets

@@ -12,6 +12,7 @@ BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-mime-data-devel
 BuildRequires:	gpgme-devel >= 0.3.14
+BuildConflicts:	gpgme-devel >= 0.4.0
 BuildRequires:	intltool
 BuildRequires:	libglade2-devel
 BuildRequires:	libgnomeui-devel

@@ -1,4 +1,4 @@
-Summary:	SeaHorse - A Gnome front end for GnuPG
+Summary:	SeaHorse - A GNOME front end for GnuPG
 Summary(pl):	SeaHorse - frontend GNOME do GnuPG
 Name:		seahorse
 Version:	0.7.3
@@ -25,7 +25,7 @@ Requires:	gnupg >= 1.2.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Seahorse is a Gnome front end for GnuPG - the Gnu Privacy Guard
+Seahorse is a GNOME front end for GnuPG - the Gnu Privacy Guard
 program. It is a tool for secure communications and data storage. Data
 encryption and digital signature creation can easily be performed
 through a GUI and Key Management operations can easily be carried out

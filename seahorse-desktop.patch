@@ -10,14 +10,13 @@ diff -ur seahorse-0.7.3.orig/plugins/nautilus/Makefile.am seahorse-0.7.3/plugins
  desktop_in_files = seahorse-pgp-preferences.desktop.in
  desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
  
-diff -ur seahorse-0.7.3.orig/plugins/nautilus/seahorse-pgp-preferences.desktop.in seahorse-0.7.3/plugins/nautilus/seahorse-pgp-preferences.desktop.in
---- seahorse-0.7.3.orig/plugins/nautilus/seahorse-pgp-preferences.desktop.in	2003-04-30 02:47:17.000000000 +0200
-+++ seahorse-0.7.3/plugins/nautilus/seahorse-pgp-preferences.desktop.in	2004-09-15 22:40:13.768213096 +0200
+--- seahorse-0.7.4/plugins/nautilus/seahorse-pgp-preferences.desktop.in.orig	2004-10-09 00:20:36.000000000 +0200
++++ seahorse-0.7.4/plugins/nautilus/seahorse-pgp-preferences.desktop.in	2005-02-13 21:51:09.712161358 +0100
 @@ -4,10 +4,12 @@
  Exec=seahorse-pgp-preferences
  Terminal=false
  Type=Application
--Icon=document-icons/gnome-application-pgp-keys.png
+-Icon=gnome-mime-application-pgp-keys.png
 -Categories=Application;Settings;Advanced
 +Icon=seahorse.png
 +Categories=GTK;GNOME;Settings;AdvancedSettings;X-Capplet;

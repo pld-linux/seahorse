@@ -51,4 +51,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/seahorse
 %{_mandir}/man?/*
 %{_applnkdir}/Utilities/*
-%{_datadir}/pixmaps/seahorse
+%{_pixmapsdir}/seahorse

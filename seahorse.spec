@@ -1,6 +1,6 @@
 #
 # TODO
-#	- fix %install stage (stripping is broken)
+#	- fix %%install stage (stripping is broken)
 #	- add generation of mime database in post
 #	- anything else?
 
@@ -21,6 +21,7 @@ Patch2:		%{name}-install.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	eel-devel >= 2.8.0
+BuildRequires:	gedit2-devel >= 2.8.0
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-mime-data-devel
 BuildRequires:	gpgme-devel >= 1:1.0.0

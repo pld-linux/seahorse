@@ -1,7 +1,7 @@
 Summary:	SeaHorse - A Gnome front end for GnuPG
 Summary(pl):	SeaHorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	0.7.2
+Version:	0.7.3
 Release:	1
 License:	GPL
 Group:		X11/Applications
@@ -42,6 +42,7 @@ kluczami jest prowadzone przez intuicyjny interfejs.
 rm -f missing
 intltoolize --copy --force
 glib-gettextize --copy --force
+%{__libtoolize}
 %{__aclocal}
 %{__autoconf}
 %{__automake}
@@ -52,10 +53,12 @@ glib-gettextize --copy --force
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	Applicationsdir=%{_applnkdir}/Utilities
+	DESTDIR=$RPM_BUILD_ROOT
 
 %find_lang %{name} --with-gnome
+
+# Remove useless stati file
+rm $RPM_BUILD_ROOT%{_libdir}/bonobo/*.a
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -71,8 +74,14 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/seahorse
+%attr(755,root,root) %{_bindir}/seahorse-pgp-preferences
+%attr(755,root,root) %{_libdir}/bonobo/*.so
+%{_libdir}/bonobo/*.la
+%{_libdir}/bonobo/servers/*.server
 %{_sysconfdir}/gconf/schemas/*
-%{_datadir}/applications/*.desktop
+%{_desktopdir}/*.desktop
 %{_omf_dest_dir}/%{name}
 %{_datadir}/%{name}
+%{_datadir}/mime-info/%{name}.*
+%{_datadir}/control-center-2.0/capplets/*.desktop
 %{_pixmapsdir}/*

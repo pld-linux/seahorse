@@ -5,11 +5,6 @@ Version:	0.5.0
 Release:	3
 License:	GPL
 Group:		X11/Applications
-Group(de):	X11/Applikationen
-Group(es):	X11/Aplicaciones
-Group(pl):	X11/Aplikacje
-Group(pt_BR):	X11/Aplicações
-Group(pt):	X11/Aplicações
 Source0:	ftp://download.sourceforge.net/pub/sourceforge/seahorse/%{name}-%{version}.tar.gz
 Patch0:		%{name}-am15.patch
 Patch1:		%{name}-pixmapsdir.patch

@@ -18,6 +18,7 @@ BuildRequires:	libglade-devel
 BuildRequires:	libgnomeui-devel
 Requires(post,postun):	/usr/bin/scrollkeeper-update
 Requires(post):	GConf2
+Requires:	gnupg
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description

@@ -20,7 +20,7 @@ diff -ur seahorse-0.7.3.orig/plugins/nautilus/seahorse-pgp-preferences.desktop.i
 -Icon=document-icons/gnome-application-pgp-keys.png
 -Categories=Application;Settings;Advanced
 +Icon=seahorse.png
-+Categories=GTK;GNOME;Settings;AdvancedSettings;Capplet;
++Categories=GTK;GNOME;Settings;AdvancedSettings;X-Capplet;
  StartupNotify=true
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=seahorse

@@ -1,11 +1,15 @@
-Summary:	SeaHorse - A Gnome front end for GnuPG 
+Summary:	SeaHorse - A Gnome front end for GnuPG
+Summary(pl):	SeaHorse - frontend GNOME do GnuPG
 Name:		seahorse
 Version:	0.5.0
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications
 Group(de):	X11/Applikationen
+Group(es):	X11/Aplicaciones
 Group(pl):	X11/Aplikacje
+Group(pt_BR):	X11/Aplicações
+Group(pt):	X11/Aplicações
 Source0:	ftp://download.sourceforge.net/pub/sourceforge/seahorse/%{name}-%{version}.tar.gz
 URL:		http://seahorse.sourceforge.net/
 BuildRequires:	gettext-devel
@@ -22,6 +26,13 @@ encryption and digital signature creation can easily be performed
 through a GUI and Key Management operations can easily be carried out
 through an intuitive interface. Both English and Japanese is support
 is provided.
+
+%description -l pl
+SeaHorse to frontend GNOME do programu GnuPG - Gnu Privacy Guard. Jest
+to narzêdzie do bezpiecznego komunikowania i przechowywania danych.
+Szyfrowanie danych i tworzenie cyfrowego podpisu mo¿e byæ ³atwo
+realizowane poprzez graficzny interfejs u¿ytkownika, a zarz±dzanie
+kluczami jest prowadzone przez intuicyjny interfejs.
 
 %prep
 %setup -q

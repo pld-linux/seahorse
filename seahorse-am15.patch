@@ -1,0 +1,38 @@
+--- seahorse-0.5.0/Makefile.am~	Fri Dec 14 04:38:40 2001
++++ seahorse-0.5.0/Makefile.am	Fri Dec 14 04:38:40 2001
+@@ -4,35 +4,9 @@
+ EXTRA_DIST = MAILERS seahorse.glade seahorse.png seahorse.spec seahorse.desktop
+ 
+ Applicationsdir = $(GNOME_APPLICATIONS_DIR)
+-#Applicationsdir = $(datadir)/gnome/apps/Applications
+ Applications_DATA = seahorse.desktop 
+-#Pixdir   = PACKAGE_PIXMAPS_DIR$(datadir)/pixmaps/seahorse
+ Pixdir   = $(PACKAGE_PIXMAPS_DIR)
+ Pix_DATA = seahorse.png
+-#install-data-local:
+-#	@$(NORMAL_INSTALL)
+-#	if test -d $(srcdir)/pixmaps; then \
+-#	  $(mkinstalldirs) $(DESTDIR)@PACKAGE_PIXMAPS_DIR@; \
+-#	  for pixmap in $(srcdir)/pixmaps/*; do \
+-#	    if test -f $$pixmap; then \
+-#	      $(INSTALL_DATA) $$pixmap $(DESTDIR)@PACKAGE_PIXMAPS_DIR@; \
+-#	    fi \
+-#	  done \
+-#	fi
+-	#if test -d $(DESTDIR)@GNOME_APPLICATIONS_DIR@; then \
+-	#   $(INSTALL_DATA) $(srcdir)/seahorse.desktop $(DESTDIR)@GNOME_APPLICATIONS_DIR@; \
+-	#fi
+-
+-
+-#uninstall-local:
+-#	if test -d @PACKAGE_PIXMAPS_DIR@; then \
+-#	  rm -f @PACKAGE_PIXMAPS_DIR@/seahorse.png; \
+-#	  rmdir @PACKAGE_PIXMAPS_DIR@; \
+-#	fi
+-#	if test -f $(DESTDIR)@GNOME_APPLICATIONS_DIR@/seahorse.desktop; then \
+-#	   rm -f $(DESTDIR)@GNOME_APPLICATIONS_DIR@/seahorse.desktop; \
+-#	fi
+-
+ 
+ dist-hook:
+ 	if test -d debian; then \

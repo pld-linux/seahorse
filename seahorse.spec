@@ -1,9 +1,10 @@
 Summary:	SeaHorse - A Gnome front end for GnuPG 
 Name:		seahorse
-Version:	0.4.8
+Version:	0.4.9
 Release:	1
 License:	GPL
 Group:		X11/Applications
+Group(de):	X11/Applikationen
 Group(pl):	X11/Aplikacje
 Source0:	ftp://download.sourceforge.net/pub/sourceforge/seahorse/%{name}-%{version}.tar.gz
 URL:		http://seahorse.sourceforge.net/
@@ -26,7 +27,6 @@ is provided.
 
 %build
 gettextize --copy --force
-LDFLAGS="-s"; export LDFLAGS
 %configure
 %{__make}
 
@@ -37,8 +37,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	Applicationsdir=%{_applnkdir}/Utilities
 
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man?/* \
-	AUTHORS ChangeLog NEWS README
+gzip -9nf AUTHORS ChangeLog NEWS README
 
 %find_lang %{name} --with-gnome
 

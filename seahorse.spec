@@ -2,7 +2,7 @@ Summary:	SeaHorse - A Gnome front end for GnuPG
 Summary(pl):	SeaHorse - frontend GNOME do GnuPG
 Name:		seahorse
 Version:	0.7.3
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/0.7/%{name}-%{version}.tar.bz2
@@ -10,16 +10,16 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/0.7/%{name}-%{version}.t
 URL:		http://seahorse.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	eel-devel
+BuildRequires:	eel-devel >= 2.3.7-2
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-mime-data-devel
 BuildRequires:	gpgme-devel >= 0.3.14
-BuildConflicts:	gpgme-devel >= 0.4.0
 BuildRequires:	intltool
 BuildRequires:	libglade2-devel
-BuildRequires:	libgnomeui-devel
+BuildRequires:	libgnomeui-devel >= 2.3.3.1-2
 BuildRequires:	libtool
-Requires(post,postun):	/usr/bin/scrollkeeper-update
+BuildConflicts:	gpgme-devel >= 0.4.0
+Requires(post):	/usr/bin/scrollkeeper-update
 Requires(post):	GConf2
 Requires:	gnupg >= 1.2.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -71,8 +71,7 @@ rm -rf $RPM_BUILD_ROOT
 /usr/bin/scrollkeeper-update
 %gconf_schema_install
 
-%postun
-/usr/bin/scrollkeeper-update
+%postun -p /usr/bin/scrollkeeper-update
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)

@@ -1,0 +1,21 @@
+--- seahorse-0.5.0/configure.in~	Fri Dec 14 04:40:50 2001
++++ seahorse-0.5.0/configure.in	Fri Dec 14 04:40:50 2001
+@@ -43,7 +43,7 @@
+ fi
+ 
+ dnl Subst PACKAGE_PIXMAPS_DIR.
+-PACKAGE_PIXMAPS_DIR="`gnome-config --datadir`/pixmaps/${PACKAGE}"
++PACKAGE_PIXMAPS_DIR="`gnome-config --datadir`/pixmaps"
+ AC_SUBST(PACKAGE_PIXMAPS_DIR)
+ 
+ dnl Subst GNOME_APPLICATIONS_DIR.
+--- seahorse-0.5.0/seahorse.desktop~	Fri Dec 14 04:41:36 2001
++++ seahorse-0.5.0/seahorse.desktop	Fri Dec 14 04:41:36 2001
+@@ -8,6 +8,6 @@
+ Comment[ja]=Î¶¤ÎÍî¤·»Ò°Å¹æ²òÆÉ¥Ä¡¼¥ë
+ Comment[tr]=GnuPG arayüzeyi
+ Exec=seahorse
+-Icon=seahorse/seahorse.png
++Icon=seahorse.png
+ Terminal=0
+ Type=Application

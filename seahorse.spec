@@ -6,18 +6,16 @@
 Summary:	SeaHorse - A GNOME front end for GnuPG
 Summary(pl):	SeaHorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	0.7.4
-Release:	0.5
+Version:	0.7.5
+Release:	0.1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/seahorse/0.7/%{name}-%{version}.tar.bz2
-# Source0-md5:	7feeb26977ee4631c9a3f142f5f8aa18
+# Source0-md5:	aa113297dbc5525a4853e73bedb9af45
 URL:		http://seahorse.sourceforge.net/
 Patch0:		%{name}-locale.patch
-Patch1:		%{name}-gedit28.patch
-Patch2:		%{name}-install.patch
-Patch3:		%{name}-pic.patch
-Patch4:		%{name}-desktop.patch
+Patch1:		%{name}-install.patch
+Patch2:		%{name}-desktop.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	eel-devel >= 2.8.0
@@ -29,7 +27,8 @@ BuildRequires:	intltool
 BuildRequires:	libglade2-devel
 BuildRequires:	libgnomeui-devel >= 2.8.0
 BuildRequires:	libtool
-Requires(post):	/usr/bin/scrollkeeper-update
+Requires(post,postun):	/sbin/ldconfig
+Requires(post,postun):	/usr/bin/scrollkeeper-update
 Requires(post):	GConf2
 Requires:	gnupg >= 1.2.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -54,8 +53,6 @@ kluczami jest prowadzone przez intuicyjny interfejs.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
-%patch4 -p1
 
 mv -f po/{no,nb}.po
 
@@ -85,10 +82,13 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/{bonobo,gedit-2/plugins}/*.la
 rm -rf $RPM_BUILD_ROOT
 
 %post
+/sbin/ldconfig
 /usr/bin/scrollkeeper-update
 %gconf_schema_install
 
-%postun -p /usr/bin/scrollkeeper-update
+%postun
+/sbin/ldconfig
+/usr/bin/scrollkeeper-update
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
@@ -96,6 +96,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/seahorse
 %attr(755,root,root) %{_bindir}/seahorse-agent
 %attr(755,root,root) %{_bindir}/seahorse-pgp-preferences
+%attr(755,root,root) %{_libdir}/libseahorse-internal.so.*.*.*
 %attr(755,root,root) %{_libdir}/bonobo/*.so
 %{_libdir}/bonobo/servers/*.server
 %{_sysconfdir}/gconf/schemas/*

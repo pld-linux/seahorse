@@ -2,7 +2,7 @@ Summary:	SeaHorse - A GNOME front end for GnuPG
 Summary(pl):	SeaHorse - frontend GNOME do GnuPG
 Name:		seahorse
 Version:	0.7.3
-Release:	7
+Release:	10
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/0.7/%{name}-%{version}.tar.bz2
@@ -21,7 +21,7 @@ BuildRequires:	intltool
 BuildRequires:	libglade2-devel
 BuildRequires:	libgnomeui-devel >= 2.3.3.1-2
 BuildRequires:	libtool
-BuildConflicts:	gpgme-devel >= 0.4.0
+BuildConflicts:	gpgme-devel >= 1:0.4.0
 Requires(post):	/usr/bin/scrollkeeper-update
 Requires(post):	GConf2
 Requires:	gnupg >= 1.2.1

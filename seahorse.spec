@@ -1,6 +1,6 @@
 Summary:	SeaHorse - A Gnome front end for GnuPG 
 Name:		seahorse
-Version:	0.4.0
+Version:	0.4.5
 Release:	1
 License:	GPL
 Group:		X11/Applications

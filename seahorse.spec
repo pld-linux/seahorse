@@ -1,8 +1,8 @@
 Summary:	SeaHorse - A Gnome front end for GnuPG
 Summary(pl):	SeaHorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	0.5.0
-Release:	3
+Version:	0.7.0
+Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://download.sourceforge.net/pub/sourceforge/seahorse/%{name}-%{version}.tar.gz
@@ -12,7 +12,9 @@ URL:		http://seahorse.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-libs-devel
+BuildRequires:	gpgme-devel
+BuildRequires:	libglade-devel
+BuildRequires:	libgnomeui-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 
@@ -33,13 +35,14 @@ kluczami jest prowadzone przez intuicyjny interfejs.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
+#%patch0 -p1
+#%patch1 -p1
 
 %build
 rm -f missing
-%{__gettextize}
-%{__aclocal} -I macros
+intltoolize --copy --force
+glib-gettextize --copy --force
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure
@@ -58,10 +61,19 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post
+/usr/bin/scrollkeeper-update
+%gconf_schema_install
+
+%postun
+/usr/bin/scrollkeeper-update
+
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/seahorse
-%{_mandir}/man?/*
-%{_applnkdir}/Utilities/*
+%{_sysconfdir}/gconf/schemas/*
+%{_datadir}/applications/*.desktop
+%{_omf_dest_dir}/%{name}
+%{_datadir}/%{name}
 %{_pixmapsdir}/*

@@ -1,0 +1,8 @@
+--- seahorse-0.7.3/src/seahorse.desktop.in~	Thu Jul 15 09:36:21 2004
++++ seahorse-0.7.3/src/seahorse.desktop.in	Thu Jul 15 09:36:21 2004
+@@ -11,3 +11,5 @@
+ X-GNOME-Bugzilla-Product=seahorse
+ X-GNOME-Bugzilla-Component=general
+ X-GNOME-DocPath=seahorse/seahorse.xml
++Encoding=UTF-8
++# vi: encoding=utf-8

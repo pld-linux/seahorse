@@ -1,0 +1,11 @@
+--- seahorse-0.7.3/configure.in~	Thu Jul 15 09:40:25 2004
++++ seahorse-0.7.3/configure.in	Thu Jul 15 09:40:25 2004
+@@ -117,7 +117,7 @@
+ dnl ***** gettext *****
+ dnl *******************
+ 
+-ALL_LINGUAS="ca cs da de es fi fr hu ja ms nl no pt_BR ru sl sv tr uk zh_CN"
++ALL_LINGUAS="ca cs da de es fi fr hu ja ms nb nl pl pt_BR ru sl sv tr uk zh_CN"
+ 
+ GETTEXT_PACKAGE=seahorse
+ AC_SUBST(GETTEXT_PACKAGE)

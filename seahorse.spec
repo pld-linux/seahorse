@@ -11,7 +11,11 @@ Group(pl):	X11/Aplikacje
 Group(pt_BR):	X11/Aplicações
 Group(pt):	X11/Aplicações
 Source0:	ftp://download.sourceforge.net/pub/sourceforge/seahorse/%{name}-%{version}.tar.gz
+Patch0:		%{name}-am15.patch
+Patch1:		%{name}-pixmapsdir.patch
 URL:		http://seahorse.sourceforge.net/
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-libs-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -36,9 +40,15 @@ kluczami jest prowadzone przez intuicyjny interfejs.
 
 %prep
 %setup -q
+%patch0 -p1
+%patch1 -p1
 
 %build
+rm -f missing
 gettextize --copy --force
+aclocal -I macros
+autoconf
+automake -a -c
 %configure
 %{__make}
 
@@ -59,8 +69,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc *.gz
-
 %attr(755,root,root) %{_bindir}/seahorse
 %{_mandir}/man?/*
 %{_applnkdir}/Utilities/*
-%{_pixmapsdir}/seahorse
+%{_pixmapsdir}/*

@@ -1,10 +1,21 @@
---- seahorse-0.7.4/plugins/nautilus/Makefile.am.orig	2004-10-21 21:35:58.410007152 +0200
-+++ seahorse-0.7.4/plugins/nautilus/Makefile.am	2004-10-21 21:36:04.699051072 +0200
-@@ -26,7 +26,6 @@
- mime_DATA = seahorse.xml
+diff -ur seahorse-0.7.6.orig/plugins/nautilus/Makefile.am seahorse-0.7.6/plugins/nautilus/Makefile.am
+--- seahorse-0.7.6.orig/plugins/nautilus/Makefile.am	2005-02-19 02:33:07.000000000 +0100
++++ seahorse-0.7.6/plugins/nautilus/Makefile.am	2005-03-29 21:51:01.359577632 +0200
+@@ -25,10 +25,8 @@
  
  install-data-local:
+ 	mkdir -p $(datadir)/mime/packages/
+-	update-mime-database $(datadir)/mime/
+     
+ uninstall-local:
 -	update-mime-database $(datadir)/mime/
  	
  @INTLTOOL_DESKTOP_RULE@
  desktopdir = $(datadir)/control-center-2.0/capplets
+--- seahorse-0.7.6.orig/agent/Makefile.am	2005-02-18 18:22:56.000000000 +0100
++++ seahorse-0.7.6/agent/Makefile.am	2005-03-29 22:24:06.185838176 +0200
+@@ -34,4 +34,3 @@
+ 	$(desktop_DATA)
+ 	
+ install-exec-hook:
+-	chmod u+s $(bindir)/seahorse-agent

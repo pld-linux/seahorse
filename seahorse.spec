@@ -1,27 +1,33 @@
+#
+# TODO
+#	- fix %install stage (stripping is broken)
+#	- add generation of mime database in post
+#	- anything else?
+
 Summary:	SeaHorse - A GNOME front end for GnuPG
 Summary(pl):	SeaHorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	0.7.3
-Release:	8
+Version:	0.7.4
+Release:	0.5
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/0.7/%{name}-%{version}.tar.bz2
-# Source0-md5:	9cebb904b22d739dc527443e417c0f78
+# Source0-md5:	7feeb26977ee4631c9a3f142f5f8aa18
 URL:		http://seahorse.sourceforge.net/
-Source1:	%{name}-pl.po
-Patch0:		%{name}-desktop.patch
-Patch1:		%{name}-locale.patch
+Patch0:		%{name}-locale.patch
+Patch1:		%{name}-gedit28.patch
+Patch2:		%{name}-install.patch
+#Patch3:		%{name}-desktop.patch //do we really need it?
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	eel-devel >= 2.3.7-2
+BuildRequires:	eel-devel >= 2.8.0
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-mime-data-devel
-BuildRequires:	gpgme-devel >= 0.3.14
+BuildRequires:	gpgme-devel >= 1.0.0
 BuildRequires:	intltool
 BuildRequires:	libglade2-devel
-BuildRequires:	libgnomeui-devel >= 2.3.3.1-2
+BuildRequires:	libgnomeui-devel >= 2.8.0
 BuildRequires:	libtool
-BuildConflicts:	gpgme-devel >= 0.4.0
 Requires(post):	/usr/bin/scrollkeeper-update
 Requires(post):	GConf2
 Requires:	gnupg >= 1.2.1
@@ -46,9 +52,9 @@ kluczami jest prowadzone przez intuicyjny interfejs.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-
-install %{SOURCE1} po/pl.po
-mv po/no.po po/nb.po
+%patch2 -p1
+#%patch3 -p1
+mv po/{no,nb}.po
 
 %build
 rm -f missing

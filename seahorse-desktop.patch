@@ -1,36 +1,19 @@
-diff -ur seahorse-0.7.3.orig/plugins/nautilus/Makefile.am seahorse-0.7.3/plugins/nautilus/Makefile.am
---- seahorse-0.7.3.orig/plugins/nautilus/Makefile.am	2003-04-30 06:25:37.000000000 +0200
-+++ seahorse-0.7.3/plugins/nautilus/Makefile.am	2004-09-15 22:39:13.425386600 +0200
-@@ -18,7 +18,7 @@
- mime_DATA = seahorse.mime seahorse.keys
- 
- @INTLTOOL_DESKTOP_RULE@
--desktopdir = $(datadir)/control-center-2.0/capplets
-+desktopdir = $(datadir)/applications
- desktop_in_files = seahorse-pgp-preferences.desktop.in
- desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
- 
---- seahorse-0.7.4/plugins/nautilus/seahorse-pgp-preferences.desktop.in.orig	2004-10-09 00:20:36.000000000 +0200
-+++ seahorse-0.7.4/plugins/nautilus/seahorse-pgp-preferences.desktop.in	2005-02-13 21:51:09.712161358 +0100
-@@ -4,10 +4,12 @@
- Exec=seahorse-pgp-preferences
+diff -aurN seahorse-0.7.7.orig/plugins/nautilus/seahorse-pgp-preferences.desktop.in seahorse-0.7.7/plugins/nautilus/seahorse-pgp-preferences.desktop.in
+--- seahorse-0.7.7.orig/plugins/nautilus/seahorse-pgp-preferences.desktop.in	2005-03-23 04:55:07.000000000 +0100
++++ seahorse-0.7.7/plugins/nautilus/seahorse-pgp-preferences.desktop.in	2005-04-16 08:34:34.000000000 +0200
+@@ -5,7 +5,7 @@
  Terminal=false
  Type=Application
--Icon=gnome-mime-application-pgp-keys.png
+ Icon=gnome-mime-application-pgp-keys.png
 -Categories=Application;Settings;Advanced
-+Icon=seahorse.png
 +Categories=GTK;GNOME;Settings;AdvancedSettings;X-Capplet;
  StartupNotify=true
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=seahorse
- X-GNOME-Bugzilla-Component=general
- X-GNOME-DocPath=seahorse/seahorse.xml
-+Encoding=UTF-8
-+# vi: encoding=utf-8
-diff -ur seahorse-0.7.3.orig/src/seahorse.desktop.in seahorse-0.7.3/src/seahorse.desktop.in
---- seahorse-0.7.3.orig/src/seahorse.desktop.in	2003-04-30 02:47:18.000000000 +0200
-+++ seahorse-0.7.3/src/seahorse.desktop.in	2004-09-15 22:36:52.001886240 +0200
-@@ -5,9 +5,11 @@
+diff -aurN seahorse-0.7.7.orig/src/seahorse.desktop.in seahorse-0.7.7/src/seahorse.desktop.in
+--- seahorse-0.7.7.orig/src/seahorse.desktop.in	2005-03-23 05:17:08.000000000 +0100
++++ seahorse-0.7.7/src/seahorse.desktop.in	2005-04-16 08:36:06.000000000 +0200
+@@ -5,7 +5,7 @@
  Terminal=false
  Type=Application
  Icon=seahorse.png
@@ -39,7 +22,3 @@ diff -ur seahorse-0.7.3.orig/src/seahorse.desktop.in seahorse-0.7.3/src/seahorse
  StartupNotify=true
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=seahorse
- X-GNOME-Bugzilla-Component=general
- X-GNOME-DocPath=seahorse/seahorse.xml
-+Encoding=UTF-8
-+# vi: encoding=utf-8

@@ -43,8 +43,8 @@ realizowane poprzez graficzny interfejs u¿ytkownika, a zarz±dzanie
 kluczami jest prowadzone przez intuicyjny interfejs.
 
 %package -n gedit-plugin-seahorse
-Summary:        Seahorse plugin for Gedit
-Summary(pl):    Wtyczka Seahorse dla Gedit
+Summary:	Seahorse plugin for Gedit
+Summary(pl):	Wtyczka Seahorse dla Gedit
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
 Requires(post,preun):	GConf2

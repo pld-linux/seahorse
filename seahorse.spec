@@ -1,16 +1,16 @@
 Summary:	SeaHorse - A GNOME front end for GnuPG
 Summary(pl):	SeaHorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	0.7.7
-Release:	2
+Version:	0.7.8
+Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/seahorse/0.7/%{name}-%{version}.tar.bz2
-# Source0-md5:	e9dda6d9f4fa23da562b5edd026f8437
+# Source0-md5:	635a5104e3ecc1d70c2489cc6472f579
 URL:		http://seahorse.sourceforge.net/
 Patch0:		%{name}-install.patch
 Patch1:		%{name}-desktop.patch
-Patch2:		%{name}-search_fix.patch
+BuildRequires:	GConf2-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gedit2-devel >= 2.10.0
@@ -19,9 +19,11 @@ BuildRequires:	gpgme-devel >= 1:1.0.0
 BuildRequires:	intltool
 BuildRequires:	libglade2-devel
 BuildRequires:	libgnomeui-devel >= 2.8.0
+BuildRequires:	libsoup-devel >= 2.2.3
 BuildRequires:	libtool
 BuildRequires:	nautilus-devel >= 2.10.0
 BuildRequires:	rpmbuild(macros) >= 1.197
+Requires(post,postun):	/sbin/ldconfig
 Requires(post,preun):	GConf2
 Requires(post,postun):	scrollkeeper
 Requires(post,postun):	shared-mime-info
@@ -74,7 +76,6 @@ Rozszerzenie do podpisywania i szyfrowania plików.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
 %{__intltoolize}
@@ -117,8 +118,10 @@ update-mime-database %{_datadir}/mime
 %postun
 /sbin/ldconfig
 %scrollkeeper_update_postun
-umask 022
-update-mime-database %{_datadir}/mime
+if [ $1 = 0 ]; then
+	umask 022
+	update-mime-database %{_datadir}/mime
+fi
 
 %post -n gedit-plugin-seahorse
 %gconf_schema_install seahorse-gedit.schemas

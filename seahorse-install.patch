@@ -1,6 +1,6 @@
-diff -aurN seahorse-0.7.7.orig/agent/Makefile.am seahorse-0.7.7/agent/Makefile.am
---- seahorse-0.7.7.orig/agent/Makefile.am	2005-03-03 21:22:28.000000000 +0100
-+++ seahorse-0.7.7/agent/Makefile.am	2005-04-16 08:44:33.000000000 +0200
+diff -urN seahorse-0.7.8.orig/agent/Makefile.am seahorse-0.7.8/agent/Makefile.am
+--- seahorse-0.7.8.orig/agent/Makefile.am	2005-05-09 09:52:58.000000000 +0200
++++ seahorse-0.7.8/agent/Makefile.am	2005-05-09 09:53:11.000000000 +0200
 @@ -32,6 +32,3 @@
  
  CLEANFILES = *.gladep* *.bak \
@@ -8,21 +8,9 @@ diff -aurN seahorse-0.7.7.orig/agent/Makefile.am seahorse-0.7.7/agent/Makefile.a
 -	
 -install-exec-hook:
 -	chmod u+s $(bindir)/seahorse-agent
-diff -aurN seahorse-0.7.7.orig/configure.in seahorse-0.7.7/configure.in
---- seahorse-0.7.7.orig/configure.in	2005-04-12 00:38:32.000000000 +0200
-+++ seahorse-0.7.7/configure.in	2005-04-16 08:40:12.000000000 +0200
-@@ -19,7 +19,7 @@
- 
- PKG_CHECK_MODULES(SEAHORSE, libgnomeui-2.0 libglade-2.0
- 			    gtk+-2.0 >= 2.4.0 eel-2.0
--			    gnome-mime-data-2.0 gnome-vfs-2.0)
-+			    gnome-vfs-2.0)
- 
- PLUGIN_LIBTOOL_FLAGS="-module -avoid-version"
- AC_SUBST(PLUGIN_LIBTOOL_FLAGS)
-diff -aurN seahorse-0.7.7.orig/plugins/nautilus/Makefile.am seahorse-0.7.7/plugins/nautilus/Makefile.am
---- seahorse-0.7.7.orig/plugins/nautilus/Makefile.am	2005-04-12 00:49:49.000000000 +0200
-+++ seahorse-0.7.7/plugins/nautilus/Makefile.am	2005-04-16 09:13:32.000000000 +0200
+diff -urN seahorse-0.7.8.orig/plugins/nautilus/Makefile.am seahorse-0.7.8/plugins/nautilus/Makefile.am
+--- seahorse-0.7.8.orig/plugins/nautilus/Makefile.am	2005-05-09 09:52:58.000000000 +0200
++++ seahorse-0.7.8/plugins/nautilus/Makefile.am	2005-05-09 09:56:02.000000000 +0200
 @@ -15,27 +15,17 @@
  	$(top_builddir)/libseahorse/libseahorse-internal.la \
  	$(SEAHORSE_LIBS)

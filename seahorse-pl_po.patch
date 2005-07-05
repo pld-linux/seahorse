@@ -1,0 +1,21 @@
+diff -aurN seahorse-0.7.8.orig/po/pl.po seahorse-0.7.8/po/pl.po
+--- seahorse-0.7.8.orig/po/pl.po	2005-02-04 03:47:49.000000000 +0100
++++ seahorse-0.7.8/po/pl.po	2005-07-05 22:31:20.000000000 +0200
+@@ -1004,7 +1004,7 @@
+ 
+ #: src/main.c:431 src/seahorse.desktop.in.h:1
+ msgid "GPG Keys Manager"
+-msgstr "Zarządca kuczy GPG"
++msgstr "Zarządca kluczy GPG"
+ 
+ #: src/seahorse-add-subkey.c:110
+ msgid "Couldn't add subkey"
+@@ -2013,7 +2013,7 @@
+ 
+ #: src/seahorse-preferences.c:49 src/seahorse-preferences.glade.h:3
+ msgid "Key Manager"
+-msgstr "Zarządca kuczy"
++msgstr "Zarządca kluczy"
+ 
+ #: src/seahorse-preferences.c:54
+ #, fuzzy

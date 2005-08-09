@@ -26,6 +26,7 @@ BuildRequires:	nautilus-devel >= 2.10.0
 BuildRequires:	openldap-devel
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
+BuildRequires:	scrollkeeper
 Requires(post,postun):	/sbin/ldconfig
 Requires(post,preun):	GConf2
 Requires(post,postun):	scrollkeeper

@@ -2,7 +2,7 @@ Summary:	SeaHorse - A GNOME front end for GnuPG
 Summary(pl):	SeaHorse - frontend GNOME do GnuPG
 Name:		seahorse
 Version:	0.7.9
-Release:	3
+Release:	4
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/seahorse/0.7/%{name}-%{version}.tar.bz2
@@ -11,7 +11,7 @@ URL:		http://seahorse.sourceforge.net/
 Patch0:		%{name}-install.patch
 Patch1:		%{name}-desktop.patch
 Patch2:		%{name}-pl_po.patch
-Patch2:		%{name}-gedit.patch
+Patch3:		%{name}-gedit.patch
 BuildRequires:	GConf2-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -82,6 +82,7 @@ Rozszerzenie do podpisywania i szyfrowania plików.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 %{__intltoolize}

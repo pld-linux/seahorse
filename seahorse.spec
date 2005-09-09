@@ -2,7 +2,7 @@ Summary:	SeaHorse - A GNOME front end for GnuPG
 Summary(pl):	SeaHorse - frontend GNOME do GnuPG
 Name:		seahorse
 Version:	0.7.9
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/seahorse/0.7/%{name}-%{version}.tar.bz2
@@ -11,18 +11,19 @@ URL:		http://seahorse.sourceforge.net/
 Patch0:		%{name}-install.patch
 Patch1:		%{name}-desktop.patch
 Patch2:		%{name}-pl_po.patch
+Patch2:		%{name}-gedit.patch
 BuildRequires:	GConf2-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gedit2-devel >= 2.10.0
+BuildRequires:	gedit2-devel >= 2.12.0
 BuildRequires:	gettext-devel
 BuildRequires:	gpgme-devel >= 1:1.0.0
 BuildRequires:	intltool
 BuildRequires:	libglade2-devel
-BuildRequires:	libgnomeui-devel >= 2.8.0
-BuildRequires:	libsoup-devel >= 2.2.3
+BuildRequires:	libgnomeui-devel >= 2.12.0
+BuildRequires:	libsoup-devel >= 2.2.6.1
 BuildRequires:	libtool
-BuildRequires:	nautilus-devel >= 2.10.0
+BuildRequires:	nautilus-devel >= 2.12.0
 BuildRequires:	openldap-devel
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
@@ -55,7 +56,7 @@ Summary(pl):	Wtyczka Seahorse dla Gedit
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
 Requires(post,preun):	GConf2
-Requires:	gedit2 >= 2.10.0
+Requires:	gedit2 >= 2.12.0
 
 %description -n gedit-plugin-seahorse
 This plugin performs encryption operations on text.
@@ -68,7 +69,7 @@ Summary:	Seahorse extension for Nautilus
 Summary(pl):	Rozszerzenie Seahorse dla Nautilusa
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
-Requires:	nautilus >= 2.10.0
+Requires:	nautilus >= 2.12.0
 
 %description -n nautilus-extension-seahorse
 Extension for signing and encrypting files.

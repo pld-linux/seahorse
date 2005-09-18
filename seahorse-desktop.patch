@@ -1,7 +1,12 @@
-diff -aurN seahorse-0.7.7.orig/plugins/nautilus/seahorse-pgp-preferences.desktop.in seahorse-0.7.7/plugins/nautilus/seahorse-pgp-preferences.desktop.in
---- seahorse-0.7.7.orig/plugins/nautilus/seahorse-pgp-preferences.desktop.in	2005-03-23 04:55:07.000000000 +0100
-+++ seahorse-0.7.7/plugins/nautilus/seahorse-pgp-preferences.desktop.in	2005-04-16 08:34:34.000000000 +0200
-@@ -5,7 +5,7 @@
+diff -urN seahorse-0.7.9.orig/plugins/nautilus/seahorse-pgp-preferences.desktop.in seahorse-0.7.9/plugins/nautilus/seahorse-pgp-preferences.desktop.in
+--- seahorse-0.7.9.orig/plugins/nautilus/seahorse-pgp-preferences.desktop.in	2005-09-18 11:18:48.831762432 +0200
++++ seahorse-0.7.9/plugins/nautilus/seahorse-pgp-preferences.desktop.in	2005-09-18 11:21:12.078985544 +0200
+@@ -1,11 +1,12 @@
+ [Desktop Entry]
++Encoding=UTF-8
+ _Name=Encryption Preferences
+ _Comment=Configure key servers and other encryption settings
+ Exec=seahorse-pgp-preferences
  Terminal=false
  Type=Application
  Icon=gnome-mime-application-pgp-keys.png
@@ -10,10 +15,15 @@ diff -aurN seahorse-0.7.7.orig/plugins/nautilus/seahorse-pgp-preferences.desktop
  StartupNotify=true
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=seahorse
-diff -aurN seahorse-0.7.7.orig/src/seahorse.desktop.in seahorse-0.7.7/src/seahorse.desktop.in
---- seahorse-0.7.7.orig/src/seahorse.desktop.in	2005-03-23 05:17:08.000000000 +0100
-+++ seahorse-0.7.7/src/seahorse.desktop.in	2005-04-16 08:36:06.000000000 +0200
-@@ -5,7 +5,7 @@
+diff -urN seahorse-0.7.9.orig/src/seahorse.desktop.in seahorse-0.7.9/src/seahorse.desktop.in
+--- seahorse-0.7.9.orig/src/seahorse.desktop.in	2005-09-18 11:18:48.607796480 +0200
++++ seahorse-0.7.9/src/seahorse.desktop.in	2005-09-18 11:20:38.958020696 +0200
+@@ -1,11 +1,12 @@
+ [Desktop Entry]
++Encoding=UTF-8
+ _Name=Encryption Key Manager
+ _Comment=Manage your encryption keys
+ Exec=seahorse
  Terminal=false
  Type=Application
  Icon=seahorse.png

@@ -1,12 +1,12 @@
 Summary:	SeaHorse - A GNOME front end for GnuPG
 Summary(pl):	SeaHorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	0.8
-Release:	2
+Version:	0.8.1
+Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/seahorse/0.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	b8c4878cdcbf57e9885583672934772c
+# Source0-md5:	5d69954ff503c625aa2618acde660496
 URL:		http://seahorse.sourceforge.net/
 Patch0:		%{name}-install.patch
 Patch1:		%{name}-desktop.patch
@@ -27,7 +27,6 @@ BuildRequires:	openldap-devel >= 2.3.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper
-Requires(post,postun):	/sbin/ldconfig
 Requires(post,preun):	GConf2
 Requires(post,postun):	scrollkeeper
 Requires(post,postun):	shared-mime-info
@@ -91,6 +90,7 @@ Rozszerzenie do podpisywania i szyfrowania plików.
 %{__automake}
 %configure \
 	--disable-schemas-install \
+	--disable-update-mime-database \
 	--disable-static
 %{__make}
 

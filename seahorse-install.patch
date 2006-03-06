@@ -1,17 +1,15 @@
-diff -urN seahorse-0.7.8.orig/agent/Makefile.am seahorse-0.7.8/agent/Makefile.am
---- seahorse-0.7.8.orig/agent/Makefile.am	2005-05-09 09:52:58.000000000 +0200
-+++ seahorse-0.7.8/agent/Makefile.am	2005-05-09 09:53:11.000000000 +0200
-@@ -32,6 +32,3 @@
- 
- CLEANFILES = *.gladep* *.bak \
+diff -aurN seahorse-0.8.1.orig/agent/Makefile.am seahorse-0.8.1/agent/Makefile.am
+--- seahorse-0.8.1.orig/agent/Makefile.am	2005-10-12 17:57:05.000000000 +0200
++++ seahorse-0.8.1/agent/Makefile.am	2006-03-06 12:24:56.175514640 +0100
+@@ -34,4 +34,3 @@
  	$(desktop_DATA)
--	
--install-exec-hook:
--	chmod u+s $(bindir)/seahorse-agent
-diff -urN seahorse-0.7.8.orig/plugins/nautilus/Makefile.am seahorse-0.7.8/plugins/nautilus/Makefile.am
---- seahorse-0.7.8.orig/plugins/nautilus/Makefile.am	2005-05-09 09:52:58.000000000 +0200
-+++ seahorse-0.7.8/plugins/nautilus/Makefile.am	2005-05-09 09:56:02.000000000 +0200
-@@ -15,27 +15,17 @@
+ 	
+ install-exec-hook:
+-	chmod u+s $(DESTDIR)/$(bindir)/seahorse-agent
+diff -aurN seahorse-0.8.1.orig/plugins/nautilus/Makefile.am seahorse-0.8.1/plugins/nautilus/Makefile.am
+--- seahorse-0.8.1.orig/plugins/nautilus/Makefile.am	2006-01-19 04:59:10.000000000 +0100
++++ seahorse-0.8.1/plugins/nautilus/Makefile.am	2006-03-06 12:25:36.347407584 +0100
+@@ -15,32 +15,10 @@
  	$(top_builddir)/libseahorse/libseahorse-internal.la \
  	$(SEAHORSE_LIBS)
  
@@ -23,27 +21,24 @@ diff -urN seahorse-0.7.8.orig/plugins/nautilus/Makefile.am seahorse-0.7.8/plugin
  mimedir = $(datadir)/mime/packages
  mime_DATA = seahorse.xml
  
- install-data-local:
- 	mkdir -p $(datadir)/mime/packages/
+-if UPDATE_MIME_DATABASE
+-install-data-local:
+-	mkdir -p $(mimedir)
 -	update-mime-database $(datadir)/mime/
-     
- uninstall-local:
- 	update-mime-database $(datadir)/mime/
- 	
- @INTLTOOL_DESKTOP_RULE@
+-
+-uninstall-local:
+-	update-mime-database $(datadir)/mime/
+-else
+-install-data-local:
+-
+-uninstall-local:
+-endif
+-
+-@INTLTOOL_DESKTOP_RULE@
 -olddesktopdir = $(datadir)/control-center-2.0/capplets
 -olddesktop_in_files = seahorse-pgp-preferences.desktop.in
 -olddesktop_DATA = $(olddesktop_in_files:.desktop.in=.desktop)
 -
--@INTLTOOL_DESKTOP_RULE@
+ @INTLTOOL_DESKTOP_RULE@
  desktopdir = $(datadir)/applications
  desktop_in_files = seahorse-pgp-preferences.desktop.in
- desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
-@@ -43,7 +33,6 @@
- 
- EXTRA_DIST = \
- 	$(mime_DATA) \
--	$(mimeinfo_DATA) \
- 	$(desktop_in_files) 
- 
- CLEANFILES = *.bak \

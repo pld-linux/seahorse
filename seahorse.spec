@@ -212,7 +212,6 @@ gtk-update-icon-cache -qf %{_datadir}/icons/hicolor
 %attr(755,root,root) %{_bindir}/seahorse-preferences
 %attr(755,root,root) %{_libdir}/libseahorse-internal.so.*.*.*
 %attr(755,root,root) %{_libdir}/seahorse/*
-%{_datadir}/mime/packages/seahorse.xml
 %{_datadir}/%{name}
 %{_datadir}/dbus-1/services/*
 %{_desktopdir}/*.desktop
@@ -232,6 +231,7 @@ gtk-update-icon-cache -qf %{_datadir}/icons/hicolor
 %files -n nautilus-extension-seahorse
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/nautilus/extensions-1.0/*.so
+%{_datadir}/mime/packages/seahorse.xml
 
 %files -n gnome-applet-seahorse -f %{name}-applet.lang
 %defattr(644,root,root,755)

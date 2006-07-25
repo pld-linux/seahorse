@@ -113,7 +113,6 @@ This is the package containing the header files for libcryptui library.
 %description -n libcryptui-devel -l pl
 Ten pakiet zawiera pliki nag³ówkowe biblioteki libcryptui.
 
-
 %package -n libcryptui-static
 Summary:	Static libcryptui library
 Summary(pl):	Statyczna biblioteka libcryptui

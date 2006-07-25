@@ -99,7 +99,7 @@ Group:		Libraries
 libcryptui library.
 
 %description -n libcryptui -l pl
-Biblioteka libcryptui
+Biblioteka libcryptui.
 
 %package -n libcryptui-devel
 Summary:	Header files for libcryptui library
@@ -210,6 +210,7 @@ gtk-update-icon-cache -qf %{_datadir}/icons/hicolor
 %attr(755,root,root) %{_bindir}/seahorse-daemon
 %attr(755,root,root) %{_bindir}/seahorse-preferences
 %attr(755,root,root) %{_libdir}/libseahorse-internal.so.*.*.*
+%dir %{_libdir}/seahorse
 %attr(755,root,root) %{_libdir}/seahorse/*
 %{_datadir}/%{name}
 %{_datadir}/dbus-1/services/*

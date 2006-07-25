@@ -1,11 +1,3 @@
-diff -aurN seahorse-0.8.1.orig/agent/Makefile.am seahorse-0.8.1/agent/Makefile.am
---- seahorse-0.8.1.orig/agent/Makefile.am	2005-10-12 17:57:05.000000000 +0200
-+++ seahorse-0.8.1/agent/Makefile.am	2006-03-06 12:24:56.175514640 +0100
-@@ -34,4 +34,3 @@
- 	$(desktop_DATA)
- 	
- install-exec-hook:
--	chmod u+s $(DESTDIR)/$(bindir)/seahorse-agent
 diff -aurN seahorse-0.8.1.orig/plugins/nautilus/Makefile.am seahorse-0.8.1/plugins/nautilus/Makefile.am
 --- seahorse-0.8.1.orig/plugins/nautilus/Makefile.am	2006-01-19 04:59:10.000000000 +0100
 +++ seahorse-0.8.1/plugins/nautilus/Makefile.am	2006-03-06 12:25:36.347407584 +0100

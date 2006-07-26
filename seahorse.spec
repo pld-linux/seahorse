@@ -17,6 +17,7 @@ BuildRequires:	automake
 BuildRequires:	dbus-glib
 BuildRequires:	gedit2-devel >= 2.14.0
 BuildRequires:	gettext-devel
+BuildRequires:	gnome-panel-devel >= 2.14.0
 BuildRequires:	gpgme-devel >= 1:1.0.0
 BuildRequires:	intltool
 BuildRequires:	libglade2-devel

@@ -11,24 +11,25 @@ URL:		http://seahorse.sourceforge.net/
 Patch0:		%{name}-install.patch
 Patch1:		%{name}-desktop.patch
 Patch2:		%{name}-pl_po.patch
-BuildRequires:	GConf2-devel
+BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	dbus-glib
-BuildRequires:	gedit2-devel >= 2.14.0
+BuildRequires:	dbus-glib-devel >= 0.62
+BuildRequires:	gedit2-devel >= 2.15.5
 BuildRequires:	gettext-devel
+BuildRequires:	gnome-doc-utils >= 0.7.1
 BuildRequires:	gnome-panel-devel >= 2.14.0
 BuildRequires:	gpgme-devel >= 1:1.0.0
 BuildRequires:	intltool
-BuildRequires:	libglade2-devel
-BuildRequires:	libgnomeui-devel >= 2.14.0
-BuildRequires:	libnotify-devel >= 0.3
-BuildRequires:	libsoup-devel >= 2.2.6.1
+BuildRequires:	libglade2-devel >= 1:2.6.0
+BuildRequires:	libgnomeui-devel >= 2.15.90
+BuildRequires:	libnotify-devel >= 0.4.2
+BuildRequires:	libsoup-devel >= 2.2.96
 BuildRequires:	libtool
-BuildRequires:	nautilus-devel >= 2.14.0
+BuildRequires:	nautilus-devel >= 2.15.90
 BuildRequires:	openldap-devel >= 2.3.0
 BuildRequires:	pkgconfig
-BuildRequires:	rpmbuild(macros) >= 1.197
+BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
 Requires(post,preun):	GConf2
 Requires(post,postun):	scrollkeeper
@@ -167,8 +168,7 @@ rm -rf $RPM_BUILD_ROOT
 /sbin/ldconfig
 %scrollkeeper_update_post
 %gconf_schema_install seahorse.schemas
-gtk-update-icon-cache -qf %{_datadir}/icons/hicolor
-umask 022
+%update_icon_cache hicolor
 
 %preun
 %gconf_schema_uninstall seahorse.schemas
@@ -176,7 +176,7 @@ umask 022
 %postun
 /sbin/ldconfig
 %scrollkeeper_update_postun
-gtk-update-icon-cache -qf %{_datadir}/icons/hicolor
+%update_icon_cache hicolor
 
 %post -n gedit-plugin-seahorse
 %gconf_schema_install seahorse-gedit.schemas
@@ -185,21 +185,18 @@ gtk-update-icon-cache -qf %{_datadir}/icons/hicolor
 %gconf_schema_uninstall seahorse-gedit.schemas
 
 %post -n nautilus-extension-seahorse
-update-mime-database %{_datadir}/mime ||:
+%update_mime_database
 
 %preun -n nautilus-extension-seahorse
-if [ $1 = 0 ]; then
-	umask 022
-	update-mime-database %{_datadir}/mime
-fi
+%update_mime_database
 
 %post -n gnome-applet-seahorse
 %scrollkeeper_update_post
-gtk-update-icon-cache -qf %{_datadir}/icons/hicolor
+%update_icon_cache hicolor
 
 %postun -n gnome-applet-seahorse
 %scrollkeeper_update_postun
-gtk-update-icon-cache -qf %{_datadir}/icons/hicolor
+%update_icon_cache hicolor
 
 %post	-n libcryptui -p /sbin/ldconfig
 %postun	-n libcryptui -p /sbin/ldconfig

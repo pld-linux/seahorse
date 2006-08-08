@@ -1,33 +1,36 @@
 Summary:	SeaHorse - A GNOME front end for GnuPG
 Summary(pl):	SeaHorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	0.8
-Release:	2
+Version:	0.9.1
+Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/seahorse/0.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	b8c4878cdcbf57e9885583672934772c
+Source0:	http://download.gnome.org/sources/seahorse/0.9/%{name}-%{version}.tar.gz
+# Source0-md5:	1752bd96de4530dfff92fe0aa4266029
 URL:		http://seahorse.sourceforge.net/
 Patch0:		%{name}-install.patch
 Patch1:		%{name}-desktop.patch
 Patch2:		%{name}-pl_po.patch
-BuildRequires:	GConf2-devel
+BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gedit2-devel >= 2.12.0
+BuildRequires:	dbus-glib-devel >= 0.62
+BuildRequires:	gedit2-devel >= 2.14.0
 BuildRequires:	gettext-devel
+BuildRequires:	gnome-doc-utils >= 0.6.0
+BuildRequires:	gnome-panel-devel >= 2.14.0
 BuildRequires:	gpgme-devel >= 1:1.0.0
 BuildRequires:	intltool
-BuildRequires:	libglade2-devel
-BuildRequires:	libgnomeui-devel >= 2.12.0
-BuildRequires:	libsoup-devel >= 2.2.6.1
+BuildRequires:	libglade2-devel >= 1:2.6.0
+BuildRequires:	libgnomeui-devel >= 2.14.0
+BuildRequires:	libnotify-devel >= 0.4.0
+BuildRequires:	libsoup-devel >= 2.2.93
 BuildRequires:	libtool
-BuildRequires:	nautilus-devel >= 2.12.0
+BuildRequires:	nautilus-devel >= 2.14.0
 BuildRequires:	openldap-devel >= 2.3.0
 BuildRequires:	pkgconfig
-BuildRequires:	rpmbuild(macros) >= 1.197
+BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
-Requires(post,postun):	/sbin/ldconfig
 Requires(post,preun):	GConf2
 Requires(post,postun):	scrollkeeper
 Requires(post,postun):	shared-mime-info
@@ -55,7 +58,7 @@ Summary(pl):	Wtyczka Seahorse dla Gedit
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
 Requires(post,preun):	GConf2
-Requires:	gedit2 >= 2.12.0
+Requires:	gedit2 >= 2.14.0
 
 %description -n gedit-plugin-seahorse
 This plugin performs encryption operations on text.
@@ -68,13 +71,61 @@ Summary:	Seahorse extension for Nautilus
 Summary(pl):	Rozszerzenie Seahorse dla Nautilusa
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
-Requires:	nautilus >= 2.12.0
+Requires:	nautilus >= 2.14.0
 
 %description -n nautilus-extension-seahorse
 Extension for signing and encrypting files.
 
 %description -n nautilus-extension-seahorse -l pl
 Rozszerzenie do podpisywania i szyfrowania plików.
+
+%package -n gnome-applet-seahorse
+Summary:	Seahorse applet
+Summary(pl):	Aplet Seahorse
+Group:		X11/Applications
+Requires:	%{name} = %{version}-%{release}
+Requires:	gnome-panel >= 2.14.0
+
+%description -n gnome-applet-seahorse
+Seahorse applet.
+
+%description -n gnome-applet-seahorse -l pl
+Aplet Seahorse.
+
+%package -n libcryptui
+Summary:	libcryptui library
+Summary(pl):	Biblioteka libcryptui
+Group:		Libraries
+
+%description -n libcryptui
+libcryptui library.
+
+%description -n libcryptui -l pl
+Biblioteka libcryptui.
+
+%package -n libcryptui-devel
+Summary:	Header files for libcryptui library
+Summary(pl):	Pliki nag³ówkowe biblioteki libcryptui
+Group:		Development/Libraries
+Requires:	%{name} = %{version}-%{release}
+
+%description -n libcryptui-devel
+This is the package containing the header files for libcryptui library.
+
+%description -n libcryptui-devel -l pl
+Ten pakiet zawiera pliki nag³ówkowe biblioteki libcryptui.
+
+%package -n libcryptui-static
+Summary:	Static libcryptui library
+Summary(pl):	Statyczna biblioteka libcryptui
+Group:		Development/Libraries
+Requires:       %{name}-devel = %{version}-%{release}
+
+%description -n libcryptui-static
+Static libcryptui library.
+
+%description -n libcryptui-static -l pl
+Statyczna biblioteka libcryptui.
 
 %prep
 %setup -q
@@ -91,7 +142,8 @@ Rozszerzenie do podpisywania i szyfrowania plików.
 %{__automake}
 %configure \
 	--disable-schemas-install \
-	--disable-static
+	--disable-update-mime-database \
+	--disable-scrollkeeper
 %{__make}
 
 %install
@@ -103,9 +155,11 @@ rm -rf $RPM_BUILD_ROOT
 rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
 %find_lang %{name} --with-gnome
+%find_lang %{name}-applet --with-gnome
 
+rm -f $RPM_BUILD_ROOT%{_libdir}/{gedit-2/plugins,nautilus/extensions-1.0}/*.a
 rm -f $RPM_BUILD_ROOT%{_libdir}/{gedit-2/plugins,nautilus/extensions-1.0}/*.la
-rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
+rm -f $RPM_BUILD_ROOT%{_libdir}/libseahorse-internal.{a,la}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -114,8 +168,7 @@ rm -rf $RPM_BUILD_ROOT
 /sbin/ldconfig
 %scrollkeeper_update_post
 %gconf_schema_install seahorse.schemas
-umask 022
-update-mime-database %{_datadir}/mime ||:
+%update_icon_cache hicolor
 
 %preun
 %gconf_schema_uninstall seahorse.schemas
@@ -123,10 +176,7 @@ update-mime-database %{_datadir}/mime ||:
 %postun
 /sbin/ldconfig
 %scrollkeeper_update_postun
-if [ $1 = 0 ]; then
-	umask 022
-	update-mime-database %{_datadir}/mime
-fi
+%update_icon_cache hicolor
 
 %post -n gedit-plugin-seahorse
 %gconf_schema_install seahorse-gedit.schemas
@@ -134,18 +184,40 @@ fi
 %preun -n gedit-plugin-seahorse
 %gconf_schema_uninstall seahorse-gedit.schemas
 
+%post -n nautilus-extension-seahorse
+%update_mime_database
+
+%preun -n nautilus-extension-seahorse
+%update_mime_database
+
+%post -n gnome-applet-seahorse
+%scrollkeeper_update_post
+%update_icon_cache hicolor
+
+%postun -n gnome-applet-seahorse
+%scrollkeeper_update_postun
+%update_icon_cache hicolor
+
+%post	-n libcryptui -p /sbin/ldconfig
+%postun	-n libcryptui -p /sbin/ldconfig
+
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/seahorse
-%attr(755,root,root) %{_bindir}/seahorse-agent
-%attr(755,root,root) %{_bindir}/seahorse-pgp-preferences
+%attr(755,root,root) %{_bindir}/seahorse-daemon
+%attr(755,root,root) %{_bindir}/seahorse-preferences
 %attr(755,root,root) %{_libdir}/libseahorse-internal.so.*.*.*
-%{_datadir}/mime/packages/seahorse.xml
+%dir %{_libdir}/seahorse
+%attr(755,root,root) %{_libdir}/seahorse/*
 %{_datadir}/%{name}
+%{_datadir}/dbus-1/services/*
 %{_desktopdir}/*.desktop
 %{_omf_dest_dir}/%{name}
 %{_pixmapsdir}/*
+%exclude %{_pixmapsdir}/%{name}/*/%{name}-applet*
+%{_iconsdir}/hicolor/*/*/*
+%exclude %{_iconsdir}/hicolor/*/*/%{name}-applet*
 %{_sysconfdir}/gconf/schemas/seahorse.schemas
 
 %files -n gedit-plugin-seahorse
@@ -157,3 +229,27 @@ fi
 %files -n nautilus-extension-seahorse
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/nautilus/extensions-1.0/*.so
+%{_datadir}/mime/packages/seahorse.xml
+
+%files -n gnome-applet-seahorse -f %{name}-applet.lang
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/seahorse-applet
+%{_libdir}/bonobo/servers/*
+%{_omf_dest_dir}/%{name}-applet
+%{_datadir}/gnome-2.0/ui/*
+%{_pixmapsdir}/%{name}/*/%{name}-applet*
+%{_iconsdir}/hicolor/*/*/%{name}-applet*
+
+%files -n libcryptui
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/libcryptui.so.*.*.*
+
+%files -n libcryptui-devel
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/libcryptui.so
+%{_libdir}/libcryptui.la
+%{_includedir}/libcryptui
+
+%files -n libcryptui-static
+%defattr(644,root,root,755)
+%{_libdir}/libcryptui.a

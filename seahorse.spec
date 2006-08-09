@@ -2,7 +2,7 @@ Summary:	SeaHorse - A GNOME front end for GnuPG
 Summary(pl):	SeaHorse - frontend GNOME do GnuPG
 Name:		seahorse
 Version:	0.9.1
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://download.gnome.org/sources/seahorse/0.9/%{name}-%{version}.tar.gz
@@ -107,7 +107,7 @@ Biblioteka libcryptui.
 Summary:	Header files for libcryptui library
 Summary(pl):	Pliki nag³ówkowe biblioteki libcryptui
 Group:		Development/Libraries
-Requires:	%{name} = %{version}-%{release}
+Requires:	libcryptui = %{version}-%{release}
 
 %description -n libcryptui-devel
 This is the package containing the header files for libcryptui library.
@@ -119,7 +119,7 @@ Ten pakiet zawiera pliki nag³ówkowe biblioteki libcryptui.
 Summary:	Static libcryptui library
 Summary(pl):	Statyczna biblioteka libcryptui
 Group:		Development/Libraries
-Requires:       %{name}-devel = %{version}-%{release}
+Requires:       libcryptui-devel = %{version}-%{release}
 
 %description -n libcryptui-static
 Static libcryptui library.

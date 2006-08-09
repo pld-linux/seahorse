@@ -119,7 +119,7 @@ Ten pakiet zawiera pliki nag³ówkowe biblioteki libcryptui.
 Summary:	Static libcryptui library
 Summary(pl):	Statyczna biblioteka libcryptui
 Group:		Development/Libraries
-Requires:       libcryptui-devel = %{version}-%{release}
+Requires:	libcryptui-devel = %{version}-%{release}
 
 %description -n libcryptui-static
 Static libcryptui library.

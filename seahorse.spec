@@ -1,32 +1,34 @@
 Summary:	SeaHorse - A GNOME front end for GnuPG
 Summary(pl):	SeaHorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	0.9.1
-Release:	2
+Version:	0.9.2.1
+Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://download.gnome.org/sources/seahorse/0.9/%{name}-%{version}.tar.gz
-# Source0-md5:	1752bd96de4530dfff92fe0aa4266029
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/0.9/%{name}-%{version}.tar.bz2
+# Source0-md5:	786dc7345c573644f5b82cf67ca9baa0
 URL:		http://seahorse.sourceforge.net/
 Patch0:		%{name}-install.patch
 Patch1:		%{name}-desktop.patch
 Patch2:		%{name}-pl_po.patch
+Patch3:		%{name}-cflags.patch
+Patch4:		%{name}-schemas.patch
 BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	dbus-glib-devel >= 0.62
-BuildRequires:	gedit2-devel >= 2.15.5
+BuildRequires:	dbus-glib-devel >= 0.71
+BuildRequires:	gedit2-devel >= 2.15.7
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-doc-utils >= 0.7.1
-BuildRequires:	gnome-panel-devel >= 2.14.0
-BuildRequires:	gpgme-devel >= 1:1.0.0
+BuildRequires:	gnome-doc-utils >= 0.7.2
+BuildRequires:	gnome-panel-devel >= 2.15.91
+BuildRequires:	gpgme-devel >= 1:1.1.2
 BuildRequires:	intltool
 BuildRequires:	libglade2-devel >= 1:2.6.0
-BuildRequires:	libgnomeui-devel >= 2.15.90
+BuildRequires:	libgnomeui-devel >= 2.15.91
 BuildRequires:	libnotify-devel >= 0.4.2
 BuildRequires:	libsoup-devel >= 2.2.96
 BuildRequires:	libtool
-BuildRequires:	nautilus-devel >= 2.15.90
+BuildRequires:	nautilus-devel >= 2.15.91
 BuildRequires:	openldap-devel >= 2.3.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
@@ -34,7 +36,7 @@ BuildRequires:	scrollkeeper
 Requires(post,preun):	GConf2
 Requires(post,postun):	scrollkeeper
 Requires(post,postun):	shared-mime-info
-Requires:	gnupg >= 1.2.1
+Requires:	gnupg >= 1.4.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -58,7 +60,7 @@ Summary(pl):	Wtyczka Seahorse dla Gedit
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
 Requires(post,preun):	GConf2
-Requires:	gedit2 >= 2.14.0
+Requires:	gedit2 >= 2.15.7
 
 %description -n gedit-plugin-seahorse
 This plugin performs encryption operations on text.
@@ -71,7 +73,7 @@ Summary:	Seahorse extension for Nautilus
 Summary(pl):	Rozszerzenie Seahorse dla Nautilusa
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
-Requires:	nautilus >= 2.14.0
+Requires:	nautilus >= 2.15.91
 
 %description -n nautilus-extension-seahorse
 Extension for signing and encrypting files.
@@ -84,7 +86,7 @@ Summary:	Seahorse applet
 Summary(pl):	Aplet Seahorse
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
-Requires:	gnome-panel >= 2.14.0
+Requires:	gnome-panel >= 2.15.91
 
 %description -n gnome-applet-seahorse
 Seahorse applet.
@@ -132,10 +134,12 @@ Statyczna biblioteka libcryptui.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
+%patch4 -p1
 
 %build
-%{__intltoolize}
 %{__glib_gettextize}
+%{__intltoolize}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
@@ -152,7 +156,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
+#rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
 %find_lang %{name} --with-gnome
 %find_lang %{name}-applet --with-gnome
@@ -207,6 +211,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/seahorse
 %attr(755,root,root) %{_bindir}/seahorse-daemon
 %attr(755,root,root) %{_bindir}/seahorse-preferences
+%attr(755,root,root) %{_bindir}/seahorse-tool
 %attr(755,root,root) %{_libdir}/libseahorse-internal.so.*.*.*
 %dir %{_libdir}/seahorse
 %attr(755,root,root) %{_libdir}/seahorse/*
@@ -219,6 +224,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/*/*/*
 %exclude %{_iconsdir}/hicolor/*/*/%{name}-applet*
 %{_sysconfdir}/gconf/schemas/seahorse.schemas
+%{_mandir}/man1/seahorse*
 
 %files -n gedit-plugin-seahorse
 %defattr(644,root,root,755)
@@ -249,6 +255,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libcryptui.so
 %{_libdir}/libcryptui.la
 %{_includedir}/libcryptui
+%{_pkgconfigdir}/*.pc
 
 %files -n libcryptui-static
 %defattr(644,root,root,755)

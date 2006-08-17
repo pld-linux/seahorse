@@ -156,8 +156,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-#rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
-
 %find_lang %{name} --with-gnome
 %find_lang %{name}-applet --with-gnome
 

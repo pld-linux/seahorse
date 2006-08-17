@@ -1,12 +1,15 @@
 diff -aurN seahorse-0.9.2.1.orig/data/seahorse.schemas.in seahorse-0.9.2.1/data/seahorse.schemas.in
 --- seahorse-0.9.2.1.orig/data/seahorse.schemas.in	2006-07-07 02:23:42.000000000 +0200
-+++ seahorse-0.9.2.1/data/seahorse.schemas.in	2006-08-17 22:04:14.000000000 +0200
-@@ -26,7 +26,7 @@
++++ seahorse-0.9.2.1/data/seahorse.schemas.in	2006-08-17 22:11:19.000000000 +0200
+@@ -26,9 +26,9 @@
          </schema>
          <schema>
              <key>/schemas/apps/seahorse/agent/load_ssh</key>
 -            <applyto>/apps/seahorse/agent/load_ssh</key>
 +            <applyto>/apps/seahorse/agent/load_ssh</applyto>
              <owner>seahorse</owner>
-             <type>boolean</type>
+-            <type>boolean</type>
++            <type>bool</type>
              <default>TRUE</default>
+             <locale name="C">
+                 <short>Whether to automatically load SSH keys on demand.</short>

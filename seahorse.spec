@@ -144,6 +144,7 @@ Statyczna biblioteka libcryptui.
 %{__aclocal}
 %{__autoconf}
 %{__automake}
+CPPFLAGS="-DGPG_MAJOR=\"1\" -DGPG_MINOR=\"4\"" 
 %configure \
 	--disable-schemas-install \
 	--disable-update-mime-database \

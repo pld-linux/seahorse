@@ -147,6 +147,7 @@ Statyczna biblioteka libcryptui.
 %configure \
 	--disable-schemas-install \
 	--disable-update-mime-database \
+	--disable-gpg-check \
 	--disable-scrollkeeper
 %{__make}
 

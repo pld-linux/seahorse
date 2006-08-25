@@ -1,18 +1,17 @@
 Summary:	SeaHorse - A GNOME front end for GnuPG
 Summary(pl):	SeaHorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	0.9.2.1
+Version:	0.9.3
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/0.9/%{name}-%{version}.tar.bz2
-# Source0-md5:	786dc7345c573644f5b82cf67ca9baa0
+# Source0-md5:	f422acdc655d5e55a4adbdfb026ece07
 URL:		http://seahorse.sourceforge.net/
 Patch0:		%{name}-install.patch
 Patch1:		%{name}-desktop.patch
-Patch2:		%{name}-pl_po.patch
-Patch3:		%{name}-cflags.patch
-Patch4:		%{name}-schemas.patch
+Patch2:		%{name}-cflags.patch
+Patch3:		%{name}-ld.patch
 BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -135,7 +134,6 @@ Statyczna biblioteka libcryptui.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
-%patch4 -p1
 
 %build
 %{__glib_gettextize}
@@ -163,13 +161,11 @@ rm -rf $RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/{gedit-2/plugins,nautilus/extensions-1.0}/*.a
 rm -f $RPM_BUILD_ROOT%{_libdir}/{gedit-2/plugins,nautilus/extensions-1.0}/*.la
-rm -f $RPM_BUILD_ROOT%{_libdir}/libseahorse-internal.{a,la}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post
-/sbin/ldconfig
 %scrollkeeper_update_post
 %gconf_schema_install seahorse.schemas
 %update_icon_cache hicolor
@@ -178,7 +174,6 @@ rm -rf $RPM_BUILD_ROOT
 %gconf_schema_uninstall seahorse.schemas
 
 %postun
-/sbin/ldconfig
 %scrollkeeper_update_postun
 %update_icon_cache hicolor
 
@@ -212,7 +207,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/seahorse-daemon
 %attr(755,root,root) %{_bindir}/seahorse-preferences
 %attr(755,root,root) %{_bindir}/seahorse-tool
-%attr(755,root,root) %{_libdir}/libseahorse-internal.so.*.*.*
 %dir %{_libdir}/seahorse
 %attr(755,root,root) %{_libdir}/seahorse/*
 %{_datadir}/%{name}

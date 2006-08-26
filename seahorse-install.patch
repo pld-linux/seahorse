@@ -1,15 +1,7 @@
-diff -aurN seahorse-0.8.1.orig/plugins/nautilus/Makefile.am seahorse-0.8.1/plugins/nautilus/Makefile.am
---- seahorse-0.8.1.orig/plugins/nautilus/Makefile.am	2006-01-19 04:59:10.000000000 +0100
-+++ seahorse-0.8.1/plugins/nautilus/Makefile.am	2006-03-06 12:25:36.347407584 +0100
-@@ -15,32 +15,10 @@
- 	$(top_builddir)/libseahorse/libseahorse-internal.la \
- 	$(SEAHORSE_LIBS)
- 
--# The old mime structure 
--mimeinfodir = $(datadir)/mime-info
--mimeinfo_DATA = seahorse.mime seahorse.keys
--
- # The new mime system
+diff -urN seahorse-0.9.3.orig/plugins/nautilus/Makefile.am seahorse-0.9.3/plugins/nautilus/Makefile.am
+--- seahorse-0.9.3.orig/plugins/nautilus/Makefile.am	2006-08-24 22:13:08.000000000 +0200
++++ seahorse-0.9.3/plugins/nautilus/Makefile.am	2006-08-26 16:50:02.298466000 +0200
+@@ -33,24 +33,6 @@
  mimedir = $(datadir)/mime/packages
  mime_DATA = seahorse.xml
  

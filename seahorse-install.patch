@@ -1,0 +1,36 @@
+diff -aurN seahorse-0.8.1.orig/plugins/nautilus/Makefile.am seahorse-0.8.1/plugins/nautilus/Makefile.am
+--- seahorse-0.8.1.orig/plugins/nautilus/Makefile.am	2006-01-19 04:59:10.000000000 +0100
++++ seahorse-0.8.1/plugins/nautilus/Makefile.am	2006-03-06 12:25:36.347407584 +0100
+@@ -15,32 +15,10 @@
+ 	$(top_builddir)/libseahorse/libseahorse-internal.la \
+ 	$(SEAHORSE_LIBS)
+ 
+-# The old mime structure 
+-mimeinfodir = $(datadir)/mime-info
+-mimeinfo_DATA = seahorse.mime seahorse.keys
+-
+ # The new mime system
+ mimedir = $(datadir)/mime/packages
+ mime_DATA = seahorse.xml
+ 
+-if UPDATE_MIME_DATABASE
+-install-data-local:
+-	mkdir -p $(mimedir)
+-	update-mime-database $(datadir)/mime/
+-
+-uninstall-local:
+-	update-mime-database $(datadir)/mime/
+-else
+-install-data-local:
+-
+-uninstall-local:
+-endif
+-
+-@INTLTOOL_DESKTOP_RULE@
+-olddesktopdir = $(datadir)/control-center-2.0/capplets
+-olddesktop_in_files = seahorse-pgp-preferences.desktop.in
+-olddesktop_DATA = $(olddesktop_in_files:.desktop.in=.desktop)
+-
+ @INTLTOOL_DESKTOP_RULE@
+ desktopdir = $(datadir)/applications
+ desktop_in_files = seahorse-pgp-preferences.desktop.in

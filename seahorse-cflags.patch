@@ -1,0 +1,12 @@
+diff -aurN seahorse-0.9.2.1.orig/configure.in seahorse-0.9.2.1/configure.in
+--- seahorse-0.9.2.1.orig/configure.in	2006-08-17 20:58:23.000000000 +0200
++++ seahorse-0.9.2.1/configure.in	2006-08-17 21:51:37.000000000 +0200
+@@ -175,7 +175,7 @@
+   AC_MSG_ERROR(GPGME $min_gpgme_version or later needed)
+ fi
+ 
+-SEAHORSE_CFLAGS="$SEAHORSE_CFLAGS $GPGME_CFLAGS -O0"
++SEAHORSE_CFLAGS="$SEAHORSE_CFLAGS $GPGME_CFLAGS"
+ SEAHORSE_LIBS="$SEAHORSE_LIBS $GPGME_LIBS"
+ 
+ 

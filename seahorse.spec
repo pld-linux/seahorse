@@ -1,17 +1,16 @@
 Summary:	SeaHorse - A GNOME front end for GnuPG
 Summary(pl):	SeaHorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	0.9.3
+Version:	0.9.7
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/0.9/%{name}-%{version}.tar.bz2
-# Source0-md5:	f422acdc655d5e55a4adbdfb026ece07
+# Source0-md5:	616f65216282535d8b6785e71db29976
 URL:		http://seahorse.sourceforge.net/
 Patch0:		%{name}-install.patch
 Patch1:		%{name}-desktop.patch
 Patch2:		%{name}-cflags.patch
-Patch3:		%{name}-ld.patch
 BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -133,13 +132,12 @@ Statyczna biblioteka libcryptui.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
 
 %build
 %{__glib_gettextize}
 %{__intltoolize}
 %{__libtoolize}
-%{__aclocal}
+%{__aclocal} -I m4
 %{__autoconf}
 %{__automake}
 CPPFLAGS="-DGPG_MAJOR=\"1\" -DGPG_MINOR=\"4\"" 
@@ -209,6 +207,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/seahorse-tool
 %dir %{_libdir}/seahorse
 %attr(755,root,root) %{_libdir}/seahorse/*
+%exclude %{_libdir}/seahorse/seahorse-applet
 %{_datadir}/%{name}
 %{_datadir}/dbus-1/services/*
 %{_desktopdir}/*.desktop
@@ -233,7 +232,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n gnome-applet-seahorse -f %{name}-applet.lang
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/seahorse-applet
+%attr(755,root,root) %{_libdir}/%{name}/seahorse-applet
 %{_libdir}/bonobo/servers/*
 %{_omf_dest_dir}/%{name}-applet
 %{_datadir}/gnome-2.0/ui/*

@@ -10,9 +10,9 @@ diff -urN seahorse-0.9.1.orig/plugins/nautilus/seahorse-pgp-preferences.desktop.
  StartupNotify=true
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=seahorse
-diff -urN seahorse-0.9.1.orig/src/seahorse.desktop.in seahorse-0.9.1/src/seahorse.desktop.in
---- seahorse-0.9.1.orig/src/seahorse.desktop.in	2006-04-06 21:30:02.000000000 +0200
-+++ seahorse-0.9.1/src/seahorse.desktop.in	2006-07-25 19:36:54.609614500 +0200
+diff -urN seahorse-0.9.7.orig/src/seahorse.desktop.in.in seahorse-0.9.7/src/seahorse.desktop.in.in
+--- seahorse-0.9.7.orig/src/seahorse.desktop.in.in	2006-04-06 21:30:02.000000000 +0200
++++ seahorse-0.9.7/src/seahorse.desktop.in.in	2006-07-25 19:36:54.609614500 +0200
 @@ -6,7 +6,7 @@
  Terminal=false
  Type=Application

@@ -64,7 +64,7 @@ Requires:	gedit2 >= 2.15.7
 This plugin performs encryption operations on text.
 
 %description -n gedit-plugin-seahorse -l pl
-Wtyczka wykonuj±ca operacje szyfruj±ce na tekscie.
+Wtyczka wykonuj±ca operacje szyfruj±ce na tek¶cie.
 
 %package -n nautilus-extension-seahorse
 Summary:	Seahorse extension for Nautilus
@@ -232,7 +232,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n gnome-applet-seahorse -f %{name}-applet.lang
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/%{name}/seahorse-applet
+%attr(755,root,root) %{_libdir}/seahorse/seahorse-applet
 %{_libdir}/bonobo/servers/*
 %{_omf_dest_dir}/%{name}-applet
 %{_datadir}/gnome-2.0/ui/*

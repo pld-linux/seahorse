@@ -1,37 +1,40 @@
-Summary:	SeaHorse - A GNOME front end for GnuPG
-Summary(pl):	SeaHorse - frontend GNOME do GnuPG
+Summary:	Seahorse - A GNOME front end for GnuPG
+Summary(pl):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	0.9.7
+Version:	0.9.9
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/0.9/%{name}-%{version}.tar.bz2
-# Source0-md5:	616f65216282535d8b6785e71db29976
-URL:		http://seahorse.sourceforge.net/
+# Source0-md5:	df4c563c164917aab736e1cc3290527b
+URL:		http://www.gnome.org/projects/seahorse/
 Patch0:		%{name}-install.patch
 Patch1:		%{name}-desktop.patch
 Patch2:		%{name}-cflags.patch
-BuildRequires:	GConf2-devel >= 2.14.0
+BuildRequires:	GConf2-devel >= 2.16.0
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.71
-BuildRequires:	gedit2-devel >= 2.15.7
+BuildRequires:	epiphany-devel >= 2.16.1
+BuildRequires:	gedit2-devel >= 2.16.2
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-doc-utils >= 0.7.2
-BuildRequires:	gnome-panel-devel >= 2.15.91
+BuildRequires:	gnome-panel-devel >= 2.16.2
 BuildRequires:	gpgme-devel >= 1:1.1.2
 BuildRequires:	intltool
 BuildRequires:	libglade2-devel >= 1:2.6.0
-BuildRequires:	libgnomeui-devel >= 2.15.91
+BuildRequires:	libgnomeui-devel >= 2.16.1
 BuildRequires:	libnotify-devel >= 0.4.2
 BuildRequires:	libsoup-devel >= 2.2.96
 BuildRequires:	libtool
-BuildRequires:	nautilus-devel >= 2.15.91
+BuildRequires:	nautilus-devel >= 2.16.3
 BuildRequires:	openldap-devel >= 2.3.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
 Requires(post,preun):	GConf2
+Requires(post,postun):	gtk+2
+Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	scrollkeeper
 Requires(post,postun):	shared-mime-info
 Requires:	gnupg >= 1.4.5
@@ -46,11 +49,24 @@ through an intuitive interface. Both English and Japanese is support
 is provided.
 
 %description -l pl
-SeaHorse to frontend GNOME do programu GnuPG - Gnu Privacy Guard. Jest
+Seahorse to frontend GNOME do programu GnuPG - Gnu Privacy Guard. Jest
 to narzêdzie do bezpiecznego komunikowania i przechowywania danych.
 Szyfrowanie danych i tworzenie cyfrowego podpisu mo¿e byæ ³atwo
 realizowane poprzez graficzny interfejs u¿ytkownika, a zarz±dzanie
 kluczami jest prowadzone przez intuicyjny interfejs.
+
+%package -n epiphany-extension-seahorse
+Summary:	Seahorse extension for Epiphany
+Summary(pl):	Rozszerzenie Seahorse dla Epiphany
+Group:		X11/Applications
+Requires:	%{name} = %{version}-%{release}
+Requires:	epiphany >= 2.16.1
+
+%description -n epiphany-extension-seahorse
+Extension for encrypting text fields.
+
+%description -n epiphany-extension-seahorse -l pl
+Rozszerzenie do szyfrowania pól tekstowych.
 
 %package -n gedit-plugin-seahorse
 Summary:	Seahorse plugin for Gedit
@@ -58,7 +74,7 @@ Summary(pl):	Wtyczka Seahorse dla Gedit
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
 Requires(post,preun):	GConf2
-Requires:	gedit2 >= 2.15.7
+Requires:	gedit2 >= 2.16.2
 
 %description -n gedit-plugin-seahorse
 This plugin performs encryption operations on text.
@@ -71,7 +87,7 @@ Summary:	Seahorse extension for Nautilus
 Summary(pl):	Rozszerzenie Seahorse dla Nautilusa
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
-Requires:	nautilus >= 2.15.91
+Requires:	nautilus >= 2.16.3
 
 %description -n nautilus-extension-seahorse
 Extension for signing and encrypting files.
@@ -84,7 +100,8 @@ Summary:	Seahorse applet
 Summary(pl):	Aplet Seahorse
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
-Requires:	gnome-panel >= 2.15.91
+Requires:	gnome-panel >= 2.16.2
+Requires(post,postun):	hicolor-icon-theme
 
 %description -n gnome-applet-seahorse
 Seahorse applet.
@@ -157,8 +174,8 @@ rm -rf $RPM_BUILD_ROOT
 %find_lang %{name} --with-gnome
 %find_lang %{name}-applet --with-gnome
 
-rm -f $RPM_BUILD_ROOT%{_libdir}/{gedit-2/plugins,nautilus/extensions-1.0}/*.a
-rm -f $RPM_BUILD_ROOT%{_libdir}/{gedit-2/plugins,nautilus/extensions-1.0}/*.la
+rm -f $RPM_BUILD_ROOT%{_libdir}/{epiphany/2.16/extensions,gedit-2/plugins,nautilus/extensions-1.0}/*.a
+rm -f $RPM_BUILD_ROOT%{_libdir}/{epiphany/2.16/extensions,gedit-2/plugins,nautilus/extensions-1.0}/*.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -202,6 +219,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/seahorse
+%attr(755,root,root) %{_bindir}/seahorse-agent
 %attr(755,root,root) %{_bindir}/seahorse-daemon
 %attr(755,root,root) %{_bindir}/seahorse-preferences
 %attr(755,root,root) %{_bindir}/seahorse-tool
@@ -218,6 +236,10 @@ rm -rf $RPM_BUILD_ROOT
 %exclude %{_iconsdir}/hicolor/*/*/%{name}-applet*
 %{_sysconfdir}/gconf/schemas/seahorse.schemas
 %{_mandir}/man1/seahorse*
+
+%files -n epiphany-extension-seahorse
+%attr(755,root,root) %{_libdir}/epiphany/2.16/extensions/libseahorseextension.so
+%{_libdir}/epiphany/2.16/extensions/seahorse.ephy-extension
 
 %files -n gedit-plugin-seahorse
 %defattr(644,root,root,755)

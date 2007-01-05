@@ -1,12 +1,12 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	0.9.9
+Version:	0.9.10
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/0.9/%{name}-%{version}.tar.bz2
-# Source0-md5:	df4c563c164917aab736e1cc3290527b
+# Source0-md5:	2e48cd0a1573cd417d85a5c5c69902f0
 URL:		http://www.gnome.org/projects/seahorse/
 Patch0:		%{name}-install.patch
 Patch1:		%{name}-desktop.patch
@@ -25,7 +25,7 @@ BuildRequires:	intltool
 BuildRequires:	libglade2-devel >= 1:2.6.0
 BuildRequires:	libgnomeui-devel >= 2.16.1
 BuildRequires:	libnotify-devel >= 0.4.2
-BuildRequires:	libsoup-devel >= 2.2.96
+BuildRequires:	libsoup-devel >= 2.2.98
 BuildRequires:	libtool
 BuildRequires:	nautilus-devel >= 2.16.3
 BuildRequires:	openldap-devel >= 2.3.0

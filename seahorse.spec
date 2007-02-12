@@ -1,5 +1,5 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
-Summary(pl):	Seahorse - frontend GNOME do GnuPG
+Summary(pl.UTF-8):   Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
 Version:	0.9.10
 Release:	1
@@ -48,16 +48,16 @@ through a GUI and Key Management operations can easily be carried out
 through an intuitive interface. Both English and Japanese is support
 is provided.
 
-%description -l pl
+%description -l pl.UTF-8
 Seahorse to frontend GNOME do programu GnuPG - Gnu Privacy Guard. Jest
-to narzÍdzie do bezpiecznego komunikowania i przechowywania danych.
-Szyfrowanie danych i tworzenie cyfrowego podpisu moøe byÊ ≥atwo
-realizowane poprzez graficzny interfejs uøytkownika, a zarz±dzanie
+to narzƒôdzie do bezpiecznego komunikowania i przechowywania danych.
+Szyfrowanie danych i tworzenie cyfrowego podpisu mo≈ºe byƒá ≈Çatwo
+realizowane poprzez graficzny interfejs u≈ºytkownika, a zarzƒÖdzanie
 kluczami jest prowadzone przez intuicyjny interfejs.
 
 %package -n epiphany-extension-seahorse
 Summary:	Seahorse extension for Epiphany
-Summary(pl):	Rozszerzenie Seahorse dla Epiphany
+Summary(pl.UTF-8):   Rozszerzenie Seahorse dla Epiphany
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
 Requires:	epiphany >= 2.16.1
@@ -65,12 +65,12 @@ Requires:	epiphany >= 2.16.1
 %description -n epiphany-extension-seahorse
 Extension for encrypting text fields.
 
-%description -n epiphany-extension-seahorse -l pl
-Rozszerzenie do szyfrowania pÛl tekstowych.
+%description -n epiphany-extension-seahorse -l pl.UTF-8
+Rozszerzenie do szyfrowania p√≥l tekstowych.
 
 %package -n gedit-plugin-seahorse
 Summary:	Seahorse plugin for Gedit
-Summary(pl):	Wtyczka Seahorse dla Gedit
+Summary(pl.UTF-8):   Wtyczka Seahorse dla Gedit
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
 Requires(post,preun):	GConf2
@@ -79,12 +79,12 @@ Requires:	gedit2 >= 2.16.2
 %description -n gedit-plugin-seahorse
 This plugin performs encryption operations on text.
 
-%description -n gedit-plugin-seahorse -l pl
-Wtyczka wykonuj±ca operacje szyfruj±ce na tek∂cie.
+%description -n gedit-plugin-seahorse -l pl.UTF-8
+Wtyczka wykonujƒÖca operacje szyfrujƒÖce na tek≈õcie.
 
 %package -n nautilus-extension-seahorse
 Summary:	Seahorse extension for Nautilus
-Summary(pl):	Rozszerzenie Seahorse dla Nautilusa
+Summary(pl.UTF-8):   Rozszerzenie Seahorse dla Nautilusa
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
 Requires:	nautilus >= 2.16.3
@@ -92,12 +92,12 @@ Requires:	nautilus >= 2.16.3
 %description -n nautilus-extension-seahorse
 Extension for signing and encrypting files.
 
-%description -n nautilus-extension-seahorse -l pl
-Rozszerzenie do podpisywania i szyfrowania plikÛw.
+%description -n nautilus-extension-seahorse -l pl.UTF-8
+Rozszerzenie do podpisywania i szyfrowania plik√≥w.
 
 %package -n gnome-applet-seahorse
 Summary:	Seahorse applet
-Summary(pl):	Aplet Seahorse
+Summary(pl.UTF-8):   Aplet Seahorse
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
 Requires:	gnome-panel >= 2.16.2
@@ -106,42 +106,42 @@ Requires(post,postun):	hicolor-icon-theme
 %description -n gnome-applet-seahorse
 Seahorse applet.
 
-%description -n gnome-applet-seahorse -l pl
+%description -n gnome-applet-seahorse -l pl.UTF-8
 Aplet Seahorse.
 
 %package -n libcryptui
 Summary:	libcryptui library
-Summary(pl):	Biblioteka libcryptui
+Summary(pl.UTF-8):   Biblioteka libcryptui
 Group:		Libraries
 
 %description -n libcryptui
 libcryptui library.
 
-%description -n libcryptui -l pl
+%description -n libcryptui -l pl.UTF-8
 Biblioteka libcryptui.
 
 %package -n libcryptui-devel
 Summary:	Header files for libcryptui library
-Summary(pl):	Pliki nag≥Ûwkowe biblioteki libcryptui
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe biblioteki libcryptui
 Group:		Development/Libraries
 Requires:	libcryptui = %{version}-%{release}
 
 %description -n libcryptui-devel
 This is the package containing the header files for libcryptui library.
 
-%description -n libcryptui-devel -l pl
-Ten pakiet zawiera pliki nag≥Ûwkowe biblioteki libcryptui.
+%description -n libcryptui-devel -l pl.UTF-8
+Ten pakiet zawiera pliki nag≈Ç√≥wkowe biblioteki libcryptui.
 
 %package -n libcryptui-static
 Summary:	Static libcryptui library
-Summary(pl):	Statyczna biblioteka libcryptui
+Summary(pl.UTF-8):   Statyczna biblioteka libcryptui
 Group:		Development/Libraries
 Requires:	libcryptui-devel = %{version}-%{release}
 
 %description -n libcryptui-static
 Static libcryptui library.
 
-%description -n libcryptui-static -l pl
+%description -n libcryptui-static -l pl.UTF-8
 Statyczna biblioteka libcryptui.
 
 %prep

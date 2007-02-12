@@ -1,5 +1,5 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
-Summary(pl.UTF-8):   Seahorse - frontend GNOME do GnuPG
+Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
 Version:	0.9.10
 Release:	1
@@ -57,7 +57,7 @@ kluczami jest prowadzone przez intuicyjny interfejs.
 
 %package -n epiphany-extension-seahorse
 Summary:	Seahorse extension for Epiphany
-Summary(pl.UTF-8):   Rozszerzenie Seahorse dla Epiphany
+Summary(pl.UTF-8):	Rozszerzenie Seahorse dla Epiphany
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
 Requires:	epiphany >= 2.16.1
@@ -70,7 +70,7 @@ Rozszerzenie do szyfrowania pól tekstowych.
 
 %package -n gedit-plugin-seahorse
 Summary:	Seahorse plugin for Gedit
-Summary(pl.UTF-8):   Wtyczka Seahorse dla Gedit
+Summary(pl.UTF-8):	Wtyczka Seahorse dla Gedit
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
 Requires(post,preun):	GConf2
@@ -84,7 +84,7 @@ Wtyczka wykonująca operacje szyfrujące na tekście.
 
 %package -n nautilus-extension-seahorse
 Summary:	Seahorse extension for Nautilus
-Summary(pl.UTF-8):   Rozszerzenie Seahorse dla Nautilusa
+Summary(pl.UTF-8):	Rozszerzenie Seahorse dla Nautilusa
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
 Requires:	nautilus >= 2.16.3
@@ -97,7 +97,7 @@ Rozszerzenie do podpisywania i szyfrowania plików.
 
 %package -n gnome-applet-seahorse
 Summary:	Seahorse applet
-Summary(pl.UTF-8):   Aplet Seahorse
+Summary(pl.UTF-8):	Aplet Seahorse
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
 Requires:	gnome-panel >= 2.16.2
@@ -111,7 +111,7 @@ Aplet Seahorse.
 
 %package -n libcryptui
 Summary:	libcryptui library
-Summary(pl.UTF-8):   Biblioteka libcryptui
+Summary(pl.UTF-8):	Biblioteka libcryptui
 Group:		Libraries
 
 %description -n libcryptui
@@ -122,7 +122,7 @@ Biblioteka libcryptui.
 
 %package -n libcryptui-devel
 Summary:	Header files for libcryptui library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki libcryptui
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libcryptui
 Group:		Development/Libraries
 Requires:	libcryptui = %{version}-%{release}
 
@@ -134,7 +134,7 @@ Ten pakiet zawiera pliki nagłówkowe biblioteki libcryptui.
 
 %package -n libcryptui-static
 Summary:	Static libcryptui library
-Summary(pl.UTF-8):   Statyczna biblioteka libcryptui
+Summary(pl.UTF-8):	Statyczna biblioteka libcryptui
 Group:		Development/Libraries
 Requires:	libcryptui-devel = %{version}-%{release}
 

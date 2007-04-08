@@ -1,24 +1,12 @@
-diff -urN seahorse-0.9.1.orig/plugins/nautilus/seahorse-pgp-preferences.desktop.in seahorse-0.9.1/plugins/nautilus/seahorse-pgp-preferences.desktop.in
---- seahorse-0.9.1.orig/plugins/nautilus/seahorse-pgp-preferences.desktop.in	2006-04-03 23:16:53.000000000 +0200
-+++ seahorse-0.9.1/plugins/nautilus/seahorse-pgp-preferences.desktop.in	2006-07-25 19:36:22.419602750 +0200
+diff -urN seahorse-1.0.1/plugins/nautilus/seahorse-pgp-preferences.desktop.in seahorse-1.0.1.new/plugins/nautilus/seahorse-pgp-preferences.desktop.in
+--- seahorse-1.0.1/plugins/nautilus/seahorse-pgp-preferences.desktop.in	2007-03-17 20:36:55.000000000 +0100
++++ seahorse-1.0.1.new/plugins/nautilus/seahorse-pgp-preferences.desktop.in	2007-04-08 11:49:10.000000000 +0200
 @@ -6,7 +6,7 @@
  Terminal=false
  Type=Application
  Icon=seahorse-preferences
--Categories=GNOME;GTK;Application;Settings;Advanced;
-+Categories=GTK;GNOME;Settings;AdvancedSettings;X-Capplet;
- StartupNotify=true
- X-GNOME-Bugzilla-Bugzilla=GNOME
- X-GNOME-Bugzilla-Product=seahorse
-diff -urN seahorse-0.9.7.orig/src/seahorse.desktop.in.in seahorse-0.9.7/src/seahorse.desktop.in.in
---- seahorse-0.9.7.orig/src/seahorse.desktop.in.in	2006-04-06 21:30:02.000000000 +0200
-+++ seahorse-0.9.7/src/seahorse.desktop.in.in	2006-07-25 19:36:54.609614500 +0200
-@@ -6,7 +6,7 @@
- Terminal=false
- Type=Application
- Icon=seahorse
--Categories=GNOME;GTK;Application;Security;Utility
-+Categories=GNOME;GTK;Utility;
+-Categories=GNOME;GTK;Settings;
++Categories=GNOME;GTK;Settings;X-Capplet;
  StartupNotify=true
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=seahorse

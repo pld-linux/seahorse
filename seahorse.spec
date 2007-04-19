@@ -2,7 +2,7 @@ Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
 Version:	1.0.1
-Release:	1
+Release:	1.1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/1.0/%{name}-%{version}.tar.bz2
@@ -38,6 +38,7 @@ Requires(post,postun):	scrollkeeper
 Requires(post,postun):	shared-mime-info
 Requires(post,preun):	GConf2
 Requires:	gnupg >= 1.4.5
+Requires:	gnugp2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -158,11 +159,9 @@ Statyczna biblioteka libcryptui.
 %{__aclocal} -I m4
 %{__autoconf}
 %{__automake}
-CPPFLAGS="-DGPG_MAJOR=\"1\" -DGPG_MINOR=\"4\""
 %configure \
 	--disable-schemas-install \
 	--disable-update-mime-database \
-	--disable-gpg-check \
 	--disable-scrollkeeper
 %{__make}
 

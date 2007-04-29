@@ -7,10 +7,10 @@ License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/1.0/%{name}-%{version}.tar.bz2
 # Source0-md5:	687b44dff0cf765d193af79de7fe856f
-URL:		http://www.gnome.org/projects/seahorse/
 Patch0:		%{name}-install.patch
 Patch1:		%{name}-desktop.patch
 Patch2:		%{name}-cflags.patch
+URL:		http://www.gnome.org/projects/seahorse/
 BuildRequires:	GConf2-devel >= 2.18.0.1
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -38,7 +38,7 @@ Requires(post,postun):	scrollkeeper
 Requires(post,postun):	shared-mime-info
 Requires(post,preun):	GConf2
 Requires:	gnupg >= 1.4.5
-Requires:	gnugp2
+Requires:	gnupg2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description

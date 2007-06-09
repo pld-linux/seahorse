@@ -2,7 +2,7 @@ Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
 Version:	1.0.1
-Release:	1.1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/1.0/%{name}-%{version}.tar.bz2
@@ -40,6 +40,8 @@ Requires(post,preun):	GConf2
 Requires:	gnupg >= 1.4.5
 Requires:	gnupg2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_noautoreq	libxpcom.so
 
 %description
 Seahorse is a GNOME front end for GnuPG - the Gnu Privacy Guard

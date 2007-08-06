@@ -1,13 +1,12 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	1.0.1
-Release:	3
+Version:	2.19.5
+Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/1.0/%{name}-%{version}.tar.bz2
-# Source0-md5:	687b44dff0cf765d193af79de7fe856f
-Patch0:		%{name}-install.patch
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/2.19/%{name}-%{version}.tar.bz2
+# Source0-md5:	f61bd756f5ec99c6ee13cad5841cd953
 Patch1:		%{name}-desktop.patch
 Patch2:		%{name}-cflags.patch
 URL:		http://www.gnome.org/projects/seahorse/
@@ -151,7 +150,6 @@ Statyczna biblioteka libcryptui.
 
 %prep
 %setup -q
-%patch0 -p1
 %patch1 -p1
 %patch2 -p1
 

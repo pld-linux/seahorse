@@ -1,13 +1,13 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	1.0.1
-Release:	3
+Version:	2.20
+Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/1.0/%{name}-%{version}.tar.bz2
-# Source0-md5:	687b44dff0cf765d193af79de7fe856f
-Patch0:		%{name}-install.patch
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/2.20/%{name}-%{version}.tar.bz2
+# Source0-md5:	663d18127477f7c70d3f47eb223dc043
+Patch0:		%{name}-gedit.patch
 Patch1:		%{name}-desktop.patch
 Patch2:		%{name}-cflags.patch
 URL:		http://www.gnome.org/projects/seahorse/
@@ -16,7 +16,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.71
 BuildRequires:	epiphany-devel >= 2.18.0
-BuildRequires:	gedit2-devel >= 2.18.0
+BuildRequires:	gedit2-devel >= 2.20.0
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-doc-utils >= 0.10.1
 BuildRequires:	gnome-panel-devel >= 2.18.0
@@ -151,9 +151,9 @@ Statyczna biblioteka libcryptui.
 
 %prep
 %setup -q
-%patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch0 -p1
 
 %build
 %{__glib_gettextize}
@@ -177,8 +177,8 @@ rm -rf $RPM_BUILD_ROOT
 %find_lang %{name} --with-gnome
 %find_lang %{name}-applet --with-gnome
 
-rm -f $RPM_BUILD_ROOT%{_libdir}/{epiphany/2.18/extensions,gedit-2/plugins,nautilus/extensions-1.0}/*.a
-rm -f $RPM_BUILD_ROOT%{_libdir}/{epiphany/2.18/extensions,gedit-2/plugins,nautilus/extensions-1.0}/*.la
+rm -f $RPM_BUILD_ROOT%{_libdir}/{epiphany/2.*/extensions,gedit-2/plugins,nautilus/extensions-1.0}/*.a
+rm -f $RPM_BUILD_ROOT%{_libdir}/{epiphany/2.*/extensions,gedit-2/plugins,nautilus/extensions-1.0}/*.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -242,8 +242,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n epiphany-extension-seahorse
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/epiphany/2.18/extensions/libseahorseextension.so
-%{_libdir}/epiphany/2.18/extensions/seahorse.ephy-extension
+%attr(755,root,root) %{_libdir}/epiphany/2.*/extensions/libseahorseextension.so
+%{_libdir}/epiphany/2.*/extensions/seahorse.ephy-extension
 
 %files -n gedit-plugin-seahorse
 %defattr(644,root,root,755)

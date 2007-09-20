@@ -15,7 +15,7 @@ BuildRequires:	GConf2-devel >= 2.18.0.1
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.71
-BuildRequires:	epiphany-devel >= 2.18.0
+BuildRequires:	epiphany-devel >= 2.20.0
 BuildRequires:	gedit2-devel >= 2.20.0
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-doc-utils >= 0.10.1

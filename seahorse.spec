@@ -1,34 +1,33 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	2.20
+Version:	2.20.1
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/2.20/%{name}-%{version}.tar.bz2
-# Source0-md5:	663d18127477f7c70d3f47eb223dc043
-Patch0:		%{name}-gedit.patch
-Patch1:		%{name}-desktop.patch
-Patch2:		%{name}-cflags.patch
+# Source0-md5:	e4266963ee9d2ffc6185938a7eaf474d
+Patch0:		%{name}-desktop.patch
+Patch1:		%{name}-cflags.patch
 URL:		http://www.gnome.org/projects/seahorse/
-BuildRequires:	GConf2-devel >= 2.18.0.1
+BuildRequires:	GConf2-devel >= 2.20.0
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.71
 BuildRequires:	epiphany-devel >= 2.20.0
 BuildRequires:	gedit2-devel >= 2.20.0
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-doc-utils >= 0.10.1
+BuildRequires:	gnome-doc-utils >= 0.12.0
 BuildRequires:	gnome-panel-devel >= 2.18.0
 BuildRequires:	gnupg >= 1.4.5
 BuildRequires:	gpgme-devel >= 1:1.1.2
 BuildRequires:	intltool
 BuildRequires:	libglade2-devel >= 1:2.6.0
-BuildRequires:	libgnomeui-devel >= 2.18.1
+BuildRequires:	libgnomeui-devel >= 2.20.0
 BuildRequires:	libnotify-devel >= 0.4.2
 BuildRequires:	libsoup-devel >= 2.2.100
 BuildRequires:	libtool
-BuildRequires:	nautilus-devel >= 2.18.0.1
+BuildRequires:	nautilus-devel >= 2.20.0
 BuildRequires:	openldap-devel >= 2.3.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
@@ -64,7 +63,7 @@ Summary:	Seahorse extension for Epiphany
 Summary(pl.UTF-8):	Rozszerzenie Seahorse dla Epiphany
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
-Requires:	epiphany >= 2.18.0
+Requires:	epiphany >= 2.20.0
 
 %description -n epiphany-extension-seahorse
 Extension for encrypting text fields.
@@ -78,7 +77,7 @@ Summary(pl.UTF-8):	Wtyczka Seahorse dla Gedit
 Group:		X11/Applications
 Requires(post,preun):	GConf2
 Requires:	%{name} = %{version}-%{release}
-Requires:	gedit2 >= 2.18.0
+Requires:	gedit2 >= 2.20.0
 
 %description -n gedit-plugin-seahorse
 This plugin performs encryption operations on text.
@@ -91,7 +90,7 @@ Summary:	Seahorse extension for Nautilus
 Summary(pl.UTF-8):	Rozszerzenie Seahorse dla Nautilusa
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
-Requires:	nautilus >= 2.18.0.1
+Requires:	nautilus >= 2.20.0
 
 %description -n nautilus-extension-seahorse
 Extension for signing and encrypting files.
@@ -105,7 +104,7 @@ Summary(pl.UTF-8):	Aplet Seahorse
 Group:		X11/Applications
 Requires(post,postun):	hicolor-icon-theme
 Requires:	%{name} = %{version}-%{release}
-Requires:	gnome-panel >= 2.18.0
+Requires:	gnome-panel >= 2.20.0
 
 %description -n gnome-applet-seahorse
 Seahorse applet.
@@ -151,9 +150,8 @@ Statyczna biblioteka libcryptui.
 
 %prep
 %setup -q
-%patch1 -p1
-%patch2 -p1
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__glib_gettextize}

@@ -2,7 +2,7 @@ Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
 Version:	2.20.1
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/2.20/%{name}-%{version}.tar.bz2
@@ -30,6 +30,8 @@ BuildRequires:	libtool
 BuildRequires:	nautilus-devel >= 2.20.0
 BuildRequires:	openldap-devel >= 2.4.6
 BuildRequires:	pkgconfig
+# support for --with-omf in find_lang.sh
+BuildRequires:	rpm-build >= 4.4.9-10
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
 Requires(post,postun):	gtk+2
@@ -39,6 +41,8 @@ Requires(post,postun):	shared-mime-info
 Requires(post,preun):	GConf2
 Requires:	gnupg >= 1.4.5
 Requires:	gnupg2
+# sr@Latn vs. sr@latin
+Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_noautoreq	libxpcom.so
@@ -153,6 +157,9 @@ Statyczna biblioteka libcryptui.
 %patch0 -p1
 %patch1 -p1
 
+sed -i -e s#sr\@Latn#sr\@latin# po/LINGUAS
+mv po/sr\@{Latn,latin}.po
+
 %build
 %{__glib_gettextize}
 %{__intltoolize}
@@ -172,8 +179,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%find_lang %{name} --with-gnome
-%find_lang %{name}-applet --with-gnome
+%find_lang %{name} --with-gnome --with-omf
+%find_lang %{name}-applet --with-gnome --with-omf
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/{epiphany/2.*/extensions,gedit-2/plugins,nautilus/extensions-1.0}/*.a
 rm -f $RPM_BUILD_ROOT%{_libdir}/{epiphany/2.*/extensions,gedit-2/plugins,nautilus/extensions-1.0}/*.la
@@ -230,7 +237,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}
 %{_datadir}/dbus-1/services/*
 %{_desktopdir}/*.desktop
-%{_omf_dest_dir}/%{name}
 %{_pixmapsdir}/*
 %exclude %{_pixmapsdir}/%{name}/*/%{name}-applet*
 %{_iconsdir}/hicolor/*/*/*
@@ -258,7 +264,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/seahorse/seahorse-applet
 %{_libdir}/bonobo/servers/*
-%{_omf_dest_dir}/%{name}-applet
 %{_datadir}/gnome-2.0/ui/*
 %{_pixmapsdir}/%{name}/*/%{name}-applet*
 %{_iconsdir}/hicolor/*/*/%{name}-applet*

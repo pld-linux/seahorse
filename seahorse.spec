@@ -1,12 +1,12 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	2.21.4
+Version:	2.21.91
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/2.21/%{name}-%{version}.tar.bz2
-# Source0-md5:	4ef7b083f0f2c1c8ab479905a633be3e
+# Source0-md5:	52dffbf505c484af4a55b405d9130f53
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-cflags.patch
 URL:		http://www.gnome.org/projects/seahorse/
@@ -27,7 +27,7 @@ BuildRequires:	libgnomeui-devel >= 2.20.0
 BuildRequires:	libnotify-devel >= 0.4.2
 BuildRequires:	libsoup-devel >= 2.2.100
 BuildRequires:	libtool
-BuildRequires:	nautilus-devel >= 2.20.0
+BuildRequires:	nautilus-devel >= 2.21.5
 BuildRequires:	openldap-devel >= 2.4.6
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
@@ -183,8 +183,8 @@ rm -rf $RPM_BUILD_ROOT
 %find_lang %{name} --with-gnome --with-omf
 %find_lang %{name}-applet --with-gnome --with-omf
 
-rm -f $RPM_BUILD_ROOT%{_libdir}/{epiphany/2.*/extensions,gedit-2/plugins,nautilus/extensions-1.0}/*.a
-rm -f $RPM_BUILD_ROOT%{_libdir}/{epiphany/2.*/extensions,gedit-2/plugins,nautilus/extensions-1.0}/*.la
+rm -f $RPM_BUILD_ROOT%{_libdir}/{epiphany/2.*/extensions,gedit-2/plugins,nautilus/extensions-2.0}/*.a
+rm -f $RPM_BUILD_ROOT%{_libdir}/{epiphany/2.*/extensions,gedit-2/plugins,nautilus/extensions-2.0}/*.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -258,7 +258,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n nautilus-extension-seahorse
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/nautilus/extensions-1.0/*.so
+%attr(755,root,root) %{_libdir}/nautilus/extensions-2.0/*.so
 %{_datadir}/mime/packages/seahorse.xml
 
 %files -n gnome-applet-seahorse -f %{name}-applet.lang

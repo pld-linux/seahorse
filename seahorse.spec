@@ -1,33 +1,33 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	2.21.91
+Version:	2.22.0
 Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/2.21/%{name}-%{version}.tar.bz2
-# Source0-md5:	52dffbf505c484af4a55b405d9130f53
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/2.22/%{name}-%{version}.tar.bz2
+# Source0-md5:	5dd87139d872c51c17de55ab4779a52a
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-cflags.patch
 URL:		http://www.gnome.org/projects/seahorse/
-BuildRequires:	GConf2-devel >= 2.20.0
+BuildRequires:	GConf2-devel >= 2.22.0
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.71
-BuildRequires:	epiphany-devel >= 2.20.0
-BuildRequires:	gedit2-devel >= 2.20.0
+BuildRequires:	epiphany-devel >= 2.22.0
+BuildRequires:	gedit2-devel >= 2.22.0
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-doc-utils >= 0.12.0
-BuildRequires:	gnome-panel-devel >= 2.18.0
+BuildRequires:	gnome-panel-devel >= 2.22.0
 BuildRequires:	gnupg >= 1.4.5
 BuildRequires:	gpgme-devel >= 1:1.1.2
 BuildRequires:	intltool
 BuildRequires:	libglade2-devel >= 1:2.6.0
-BuildRequires:	libgnomeui-devel >= 2.20.0
+BuildRequires:	libgnomeui-devel >= 2.22.0
 BuildRequires:	libnotify-devel >= 0.4.2
-BuildRequires:	libsoup-devel >= 2.2.100
+BuildRequires:	libsoup-devel >= 2.4.0
 BuildRequires:	libtool
-BuildRequires:	nautilus-devel >= 2.21.5
+BuildRequires:	nautilus-devel >= 2.22.0
 BuildRequires:	openldap-devel >= 2.4.6
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23

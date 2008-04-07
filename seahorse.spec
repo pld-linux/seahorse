@@ -1,12 +1,12 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	2.22.0
+Version:	2.22.1
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/2.22/%{name}-%{version}.tar.bz2
-# Source0-md5:	5dd87139d872c51c17de55ab4779a52a
+# Source0-md5:	e0e409ab825c954b5937b8b115dd5118
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-cflags.patch
 URL:		http://www.gnome.org/projects/seahorse/

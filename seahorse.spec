@@ -1,14 +1,15 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	2.22.1
+Version:	2.22.2
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/2.22/%{name}-%{version}.tar.bz2
-# Source0-md5:	e0e409ab825c954b5937b8b115dd5118
+# Source0-md5:	729654701cba82ce4b3cf26c73af1dd9
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-cflags.patch
+Patch2:		%{name}-configure.in.patch
 URL:		http://www.gnome.org/projects/seahorse/
 BuildRequires:	GConf2-devel >= 2.22.0
 BuildRequires:	autoconf
@@ -157,6 +158,7 @@ Statyczna biblioteka libcryptui.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 sed -i -e 's#sr\@Latn#sr\@latin#' po/LINGUAS
 mv po/sr\@{Latn,latin}.po

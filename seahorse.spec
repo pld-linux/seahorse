@@ -1,16 +1,12 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	2.22.3
-Release:	2
+Version:	2.24.0
+Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/2.22/%{name}-%{version}.tar.bz2
-# Source0-md5:	7fdab30dbf8684881199e15246c3765a
-Patch0:		%{name}-desktop.patch
-Patch1:		%{name}-cflags.patch
-Patch2:		%{name}-configure.in.patch
-Patch3:		%{name}-libxul.patch
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/2.24/%{name}-%{version}.tar.bz2
+# Source0-md5:	e8a7836c63b3a6f5b6c1311c86b7520b
 URL:		http://www.gnome.org/projects/seahorse/
 BuildRequires:	GConf2-devel >= 2.22.0
 BuildRequires:	autoconf
@@ -25,18 +21,17 @@ BuildRequires:	gnupg >= 1.4.5
 BuildRequires:	gpgme-devel >= 1:1.1.2
 BuildRequires:	intltool
 BuildRequires:	libglade2-devel >= 1:2.6.0
-BuildRequires:	libgnomeui-devel >= 2.22.0
 BuildRequires:	libnotify-devel >= 0.4.2
 BuildRequires:	libsoup-devel >= 2.4.0
 BuildRequires:	libtool
-BuildRequires:	nautilus-devel >= 2.22.0
+#BuildRequires:	nautilus-devel >= 2.22.0
 BuildRequires:	openldap-devel >= 2.4.6
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
 BuildRequires:	sed >= 4.0
-BuildRequires:	xulrunner-devel
+#BuildRequires:	xulrunner-devel
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	scrollkeeper
@@ -157,13 +152,6 @@ Statyczna biblioteka libcryptui.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
-%patch3 -p1
-
-sed -i -e 's#sr@Latn#sr@latin#' po/LINGUAS
-mv po/sr@{Latn,latin}.po
 
 %build
 %{__glib_gettextize}
@@ -185,7 +173,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 %find_lang %{name} --with-gnome --with-omf
-%find_lang %{name}-applet --with-gnome --with-omf
+#%find_lang %{name}-applet --with-gnome --with-omf
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/{epiphany/2.*/extensions,gedit-2/plugins,nautilus/extensions-2.0}/*.a
 rm -f $RPM_BUILD_ROOT%{_libdir}/{epiphany/2.*/extensions,gedit-2/plugins,nautilus/extensions-2.0}/*.la
@@ -232,50 +220,51 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/seahorse
-%attr(755,root,root) %{_bindir}/seahorse-agent
+#%attr(755,root,root) %{_bindir}/seahorse-agent
 %attr(755,root,root) %{_bindir}/seahorse-daemon
-%attr(755,root,root) %{_bindir}/seahorse-preferences
-%attr(755,root,root) %{_bindir}/seahorse-tool
+#%attr(755,root,root) %{_bindir}/seahorse-preferences
+#%attr(755,root,root) %{_bindir}/seahorse-tool
 %dir %{_libdir}/seahorse
 %attr(755,root,root) %{_libdir}/seahorse/*
-%exclude %{_libdir}/seahorse/seahorse-applet
+#%exclude %{_libdir}/seahorse/seahorse-applet
 %{_datadir}/%{name}
 %{_datadir}/dbus-1/services/*
 %{_desktopdir}/*.desktop
 %{_pixmapsdir}/*
-%exclude %{_pixmapsdir}/%{name}/*/%{name}-applet*
+#%exclude %{_pixmapsdir}/%{name}/*/%{name}-applet*
 %{_iconsdir}/hicolor/*/*/*
-%exclude %{_iconsdir}/hicolor/*/*/%{name}-applet*
+#%exclude %{_iconsdir}/hicolor/*/*/%{name}-applet*
 %{_sysconfdir}/gconf/schemas/seahorse.schemas
 %{_mandir}/man1/seahorse*
 
-%files -n epiphany-extension-seahorse
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/epiphany/2.*/extensions/libseahorseextension.so
-%{_libdir}/epiphany/2.*/extensions/seahorse.ephy-extension
+#%files -n epiphany-extension-seahorse
+#%defattr(644,root,root,755)
+#%attr(755,root,root) %{_libdir}/epiphany/2.*/extensions/libseahorseextension.so
+#%{_libdir}/epiphany/2.*/extensions/seahorse.ephy-extension
 
-%files -n gedit-plugin-seahorse
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/gedit-2/plugins/libseahorse-pgp.so
-%{_libdir}/gedit-2/plugins/seahorse-pgp.gedit-plugin
-%{_sysconfdir}/gconf/schemas/seahorse-gedit.schemas
+#%files -n gedit-plugin-seahorse
+#%defattr(644,root,root,755)
+#%attr(755,root,root) %{_libdir}/gedit-2/plugins/libseahorse-pgp.so
+#%{_libdir}/gedit-2/plugins/seahorse-pgp.gedit-plugin
+#%{_sysconfdir}/gconf/schemas/seahorse-gedit.schemas
 
-%files -n nautilus-extension-seahorse
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/nautilus/extensions-2.0/*.so
-%{_datadir}/mime/packages/seahorse.xml
+#%files -n nautilus-extension-seahorse
+#%defattr(644,root,root,755)
+#%attr(755,root,root) %{_libdir}/nautilus/extensions-2.0/*.so
+#%{_datadir}/mime/packages/seahorse.xml
 
-%files -n gnome-applet-seahorse -f %{name}-applet.lang
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/seahorse/seahorse-applet
-%{_libdir}/bonobo/servers/*
-%{_datadir}/gnome-2.0/ui/*
-%{_pixmapsdir}/%{name}/*/%{name}-applet*
-%{_iconsdir}/hicolor/*/*/%{name}-applet*
+#%files -n gnome-applet-seahorse -f %{name}-applet.lang
+#%defattr(644,root,root,755)
+#%attr(755,root,root) %{_libdir}/seahorse/seahorse-applet
+#%{_libdir}/bonobo/servers/*
+#%{_datadir}/gnome-2.0/ui/*
+#%{_pixmapsdir}/%{name}/*/%{name}-applet*
+#%{_iconsdir}/hicolor/*/*/%{name}-applet*
 
 %files -n libcryptui
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libcryptui.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libcryptui.so.0
 
 %files -n libcryptui-devel
 %defattr(644,root,root,755)

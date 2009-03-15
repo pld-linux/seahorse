@@ -1,12 +1,12 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	2.24.1
-Release:	2
+Version:	2.26.0
+Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/2.24/%{name}-%{version}.tar.bz2
-# Source0-md5:	b35076c2ae46aa58d9b1ca76fe929515
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/2.26/%{name}-%{version}.tar.bz2
+# Source0-md5:	ddecca2181d4c9f0dfbe412b68508e5d
 URL:		http://www.gnome.org/projects/seahorse/
 BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	autoconf >= 2.52
@@ -15,10 +15,11 @@ BuildRequires:	avahi-glib-devel >= 0.6
 BuildRequires:	dbus-glib-devel >= 0.71
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-doc-utils >= 0.14.0
-BuildRequires:	gnome-keyring-devel >= 2.24.0
+BuildRequires:	gnome-keyring-devel >= 2.26.0
 BuildRequires:	gnupg >= 1.4.5
 BuildRequires:	gpgme-devel >= 1:1.1.2
 BuildRequires:	gtk+2-devel >= 2:2.14.0
+BuildRequires:	gtk-doc >= 1.9
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libglade2-devel >= 1:2.6.2
 BuildRequires:	libnotify-devel >= 0.4.2
@@ -29,18 +30,16 @@ BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
-BuildRequires:	vala >= 0.3.5
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	scrollkeeper
 Requires(post,preun):	GConf2
 Requires:	gnupg >= 1.4.5
 Requires:	gnupg2
+Requires:	libcryptui = %{version}-%{release}
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_noautoreq	libxpcom.so
 
 %description
 Seahorse is a GNOME front end for GnuPG - the Gnu Privacy Guard
@@ -62,7 +61,6 @@ Summary:	libcryptui library
 Summary(pl.UTF-8):	Biblioteka libcryptui
 License:	LGPL v2
 Group:		X11/Libraries
-Requires(post,postun):	/sbin/ldconfig
 
 %description -n libcryptui
 libcryptui library.
@@ -99,6 +97,18 @@ Static libcryptui library.
 %description -n libcryptui-static -l pl.UTF-8
 Statyczna biblioteka libcryptui.
 
+%package -n libcryptui-apidocs
+Summary:	libcryptui library API documentation
+Summary(pl.UTF-8):	Dokumentacja API biblioteki libcryptui
+Group:		Documentation
+Requires:	gtk-doc-common
+
+%description -n libcryptui-apidocs
+libcryptui library API documentation.
+
+%description -n libcryptui-apidocs -l pl.UTF-8
+Dokumentacja API biblioteki libcryptui.
+
 %prep
 %setup -q
 
@@ -111,6 +121,8 @@ Statyczna biblioteka libcryptui.
 %{__autoheader}
 %{__automake}
 %configure \
+	--enable-gtk-doc \
+	--with-html-dir=%{_gtkdocdir} \
 	--disable-schemas-install \
 	--disable-scrollkeeper
 %{__make}
@@ -153,6 +165,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/seahorse.desktop
 %{_pixmapsdir}/*
 %{_iconsdir}/hicolor/*/*/*
+%{_sysconfdir}/xdg/autostart/seahorse-daemon.desktop
 %{_sysconfdir}/gconf/schemas/seahorse.schemas
 %{_mandir}/man1/seahorse-daemon.1*
 
@@ -171,3 +184,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -n libcryptui-static
 %defattr(644,root,root,755)
 %{_libdir}/libcryptui.a
+
+%files -n libcryptui-apidocs
+%defattr(644,root,root,755)
+%{_gtkdocdir}/libcryptui

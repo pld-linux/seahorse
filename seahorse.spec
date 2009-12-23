@@ -1,12 +1,12 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	2.28.0
+Version:	2.28.1
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/2.28/%{name}-%{version}.tar.bz2
-# Source0-md5:	250495064ce62e19719167897cdea930
+# Source0-md5:	c49d4d9bcfe7620081df517ab939f67b
 URL:		http://www.gnome.org/projects/seahorse/
 BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	autoconf >= 2.52
@@ -117,6 +117,7 @@ Dokumentacja API biblioteki libcryptui.
 
 %build
 %{__glib_gettextize}
+%{__gtkdocize}
 %{__intltoolize}
 %{__libtoolize}
 %{__aclocal} -I m4
@@ -135,6 +136,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+# remove internal API documentation
+rm -rf $RPM_BUILD_ROOT%{_gtkdocdir}/libseahorse
 
 %find_lang %{name} --with-gnome --with-omf
 
@@ -162,7 +166,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/seahorse
 %attr(755,root,root) %{_bindir}/seahorse-daemon
 %dir %{_libdir}/seahorse
-%attr(755,root,root) %{_libdir}/seahorse/*
+%attr(755,root,root) %{_libdir}/seahorse/seahorse-ssh-askpass
+%attr(755,root,root) %{_libdir}/seahorse/xloadimage
 %{_datadir}/%{name}
 %{_datadir}/dbus-1/services/org.gnome.seahorse.service
 %{_desktopdir}/seahorse.desktop

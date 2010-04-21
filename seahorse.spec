@@ -1,12 +1,12 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	2.28.1
-Release:	2
+Version:	2.30.0
+Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/2.28/%{name}-%{version}.tar.bz2
-# Source0-md5:	c49d4d9bcfe7620081df517ab939f67b
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/2.30/%{name}-%{version}.tar.bz2
+# Source0-md5:	46f3f1b50138d26ffcd22d331a9dcf7b
 URL:		http://www.gnome.org/projects/seahorse/
 BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	autoconf >= 2.52
@@ -30,16 +30,15 @@ BuildRequires:	openldap-devel >= 2.4.6
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
-BuildRequires:	scrollkeeper
 BuildRequires:	xorg-lib-libICE-devel
 BuildRequires:	xorg-lib-libSM-devel
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
-Requires(post,postun):	scrollkeeper
 Requires(post,preun):	GConf2
 Requires:	gnupg >= 1.4.5
 Requires:	gnupg2
 Requires:	libcryptui = %{version}-%{release}
+Requires:	rarian
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -87,19 +86,6 @@ library.
 %description -n libcryptui-devel -l pl.UTF-8
 Ten pakiet zawiera pliki nagłówkowe biblioteki libcryptui.
 
-%package -n libcryptui-static
-Summary:	Static libcryptui library
-Summary(pl.UTF-8):	Statyczna biblioteka libcryptui
-License:	LGPL v2
-Group:		X11/Development/Libraries
-Requires:	libcryptui-devel = %{version}-%{release}
-
-%description -n libcryptui-static
-Static libcryptui library.
-
-%description -n libcryptui-static -l pl.UTF-8
-Statyczna biblioteka libcryptui.
-
 %package -n libcryptui-apidocs
 Summary:	libcryptui library API documentation
 Summary(pl.UTF-8):	Dokumentacja API biblioteki libcryptui
@@ -114,6 +100,8 @@ Dokumentacja API biblioteki libcryptui.
 
 %prep
 %setup -q
+sed -i s#^en@shaw## po/LINGUAS
+rm po/en@shaw.po
 
 %build
 %{__glib_gettextize}
@@ -126,9 +114,12 @@ Dokumentacja API biblioteki libcryptui.
 %{__automake}
 %configure \
 	--enable-gtk-doc \
+	--enable-pgp \
 	--with-html-dir=%{_gtkdocdir} \
 	--disable-schemas-install \
-	--disable-scrollkeeper
+	--disable-scrollkeeper \
+	--disable-static \
+	--disable-update-mime-database
 %{__make}
 
 %install
@@ -146,7 +137,6 @@ rm -rf $RPM_BUILD_ROOT%{_gtkdocdir}/libseahorse
 rm -rf $RPM_BUILD_ROOT
 
 %post
-%scrollkeeper_update_post
 %gconf_schema_install seahorse.schemas
 %update_icon_cache hicolor
 
@@ -154,7 +144,6 @@ rm -rf $RPM_BUILD_ROOT
 %gconf_schema_uninstall seahorse.schemas
 
 %postun
-%scrollkeeper_update_postun
 %update_icon_cache hicolor
 
 %post	-n libcryptui -p /sbin/ldconfig
@@ -173,14 +162,15 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/seahorse.desktop
 %{_pixmapsdir}/*
 %{_iconsdir}/hicolor/*/*/*
-%{_sysconfdir}/xdg/autostart/seahorse-daemon.desktop
 %{_sysconfdir}/gconf/schemas/seahorse.schemas
+%{_mandir}/man1/seahorse.1*
 %{_mandir}/man1/seahorse-daemon.1*
 
 %files -n libcryptui
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libcryptui.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libcryptui.so.0
+%{_libdir}/girepository-1.0/CryptUI-0.0.typelib
 
 %files -n libcryptui-devel
 %defattr(644,root,root,755)
@@ -188,10 +178,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libcryptui.la
 %{_includedir}/libcryptui
 %{_pkgconfigdir}/cryptui-0.0.pc
-
-%files -n libcryptui-static
-%defattr(644,root,root,755)
-%{_libdir}/libcryptui.a
+%{_datadir}/gir-1.0/CryptUI-0.0.gir
 
 %files -n libcryptui-apidocs
 %defattr(644,root,root,755)

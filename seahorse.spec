@@ -1,12 +1,12 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	2.30.0
+Version:	2.30.1
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/2.30/%{name}-%{version}.tar.bz2
-# Source0-md5:	46f3f1b50138d26ffcd22d331a9dcf7b
+# Source0-md5:	b332279b34acca952807e31534fec592
 URL:		http://www.gnome.org/projects/seahorse/
 BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	autoconf >= 2.52
@@ -16,13 +16,14 @@ BuildRequires:	dbus-glib-devel >= 0.71
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-doc-utils >= 0.14.0
-BuildRequires:	gnome-keyring-devel >= 2.26.0
+BuildRequires:	gnome-keyring-devel >= 2.30.0
 BuildRequires:	gnupg >= 1.4.5
+BuildRequires:	gobject-introspection-devel >= 0.6.4
 BuildRequires:	gpgme-devel >= 1:1.1.2
-BuildRequires:	gtk+2-devel >= 2:2.14.0
+BuildRequires:	gtk+2-devel >= 2:2.18.0
 BuildRequires:	gtk-doc >= 1.9
 BuildRequires:	intltool >= 0.40.0
-BuildRequires:	libglade2-devel >= 1:2.6.2
+BuildRequires:	libgnome-keyring-devel >= 2.26.0
 BuildRequires:	libnotify-devel >= 0.4.2
 BuildRequires:	libsoup-devel >= 2.4.0
 BuildRequires:	libtool
@@ -76,7 +77,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libcryptui
 License:	LGPL v2
 Group:		X11/Development/Libraries
 Requires:	GConf2-devel >= 2.24.0
-Requires:	gtk+2-devel >= 2:2.14.0
+Requires:	gtk+2-devel >= 2:2.18.0
 Requires:	libcryptui = %{version}-%{release}
 
 %description -n libcryptui-devel

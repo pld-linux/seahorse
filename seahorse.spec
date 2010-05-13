@@ -114,6 +114,8 @@ rm po/en@shaw.po
 %{__autoheader}
 %{__automake}
 %configure \
+	SSH_KEYGEN_PATH=%{_bindir}/ssh-keygen \
+	SSH_PATH=%{_bindir}/ssh \
 	--enable-gtk-doc \
 	--enable-pgp \
 	--with-html-dir=%{_gtkdocdir} \

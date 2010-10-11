@@ -1,14 +1,15 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	2.30.1
+Version:	2.32.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/2.30/%{name}-%{version}.tar.bz2
-# Source0-md5:	b332279b34acca952807e31534fec592
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/2.32/%{name}-%{version}.tar.bz2
+# Source0-md5:	bffb5ba78efb7eae760e05d8473ee7ad
 URL:		http://www.gnome.org/projects/seahorse/
 BuildRequires:	GConf2-devel >= 2.24.0
+BuildRequires:	atk-devel >= 1.32
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	avahi-glib-devel >= 0.6
@@ -28,6 +29,7 @@ BuildRequires:	libnotify-devel >= 0.4.2
 BuildRequires:	libsoup-devel >= 2.4.0
 BuildRequires:	libtool
 BuildRequires:	openldap-devel >= 2.4.6
+BuildRequires:	pango-devel >= 1.28.2
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311

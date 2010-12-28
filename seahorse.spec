@@ -1,12 +1,12 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	2.91.2
+Version:	2.91.4
 Release:	0.1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/2.91/%{name}-%{version}.tar.bz2
-# Source0-md5:	639f95561d55aa59dbf595d19242630b
+# Source0-md5:	e7e40aa3178e5ada5b3957696b0ea0ee
 URL:		http://www.gnome.org/projects/seahorse/
 BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	atk-devel >= 1.32
@@ -17,11 +17,11 @@ BuildRequires:	dbus-glib-devel >= 0.71
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-doc-utils >= 0.14.0
-BuildRequires:	gnome-keyring-devel >= 2.91.2
+BuildRequires:	gnome-keyring-devel >= 2.91.4
 BuildRequires:	gnupg >= 1.4.5
 BuildRequires:	gobject-introspection-devel >= 0.6.4
 BuildRequires:	gpgme-devel >= 1:1.1.2
-BuildRequires:	gtk+3-devel >= 2.91.4
+BuildRequires:	gtk+3-devel >= 2.91.7
 BuildRequires:	gtk-doc >= 1.9
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libgnome-keyring-devel >= 2.26.0
@@ -79,7 +79,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libcryptui
 License:	LGPL v2
 Group:		X11/Development/Libraries
 Requires:	GConf2-devel >= 2.24.0
-Requires:	gtk+3-devel >= 2.91.4
+Requires:	gtk+3-devel >= 2.91.7
 Requires:	libcryptui = %{version}-%{release}
 
 %description -n libcryptui-devel

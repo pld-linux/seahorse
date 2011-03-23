@@ -103,8 +103,6 @@ Dokumentacja API biblioteki libcryptui.
 
 %prep
 %setup -q
-sed -i s#^en@shaw## po/LINGUAS
-rm po/en@shaw.po
 
 %build
 %{__glib_gettextize}
@@ -135,7 +133,8 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 # remove internal API documentation
-rm -rf $RPM_BUILD_ROOT%{_gtkdocdir}/libseahorse
+%{__rm} -r $RPM_BUILD_ROOT%{_gtkdocdir}/libseahorse
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libcryptui.la
 
 %find_lang %{name} --with-gnome --with-omf
 
@@ -181,7 +180,6 @@ rm -rf $RPM_BUILD_ROOT
 %files -n libcryptui-devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libcryptui.so
-%{_libdir}/libcryptui.la
 %{_includedir}/libcryptui
 %{_pkgconfigdir}/cryptui-0.0.pc
 %{_datadir}/gir-1.0/CryptUI-0.0.gir

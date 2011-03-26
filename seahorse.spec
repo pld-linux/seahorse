@@ -7,6 +7,7 @@ License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/2.32/%{name}-%{version}.tar.bz2
 # Source0-md5:	bffb5ba78efb7eae760e05d8473ee7ad
+Patch0:		desktop.patch
 URL:		http://www.gnome.org/projects/seahorse/
 BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	atk-devel >= 1.32
@@ -103,6 +104,7 @@ Dokumentacja API biblioteki libcryptui.
 
 %prep
 %setup -q
+%patch0 -p1
 sed -i s#^en@shaw## po/LINGUAS
 rm po/en@shaw.po
 

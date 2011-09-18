@@ -1,46 +1,41 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	3.1.91
+Version:	3.1.92
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/3.1/%{name}-%{version}.tar.xz
-# Source0-md5:	f20afeb4b2e85b29adf74244046d3315
+# Source0-md5:	d6958de52f66185061390fc8822b4f1c
 URL:		http://www.gnome.org/projects/seahorse/
 BuildRequires:	atk-devel >= 1.32
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
+BuildRequires:	avahi-devel
 BuildRequires:	avahi-glib-devel >= 0.6
 BuildRequires:	dbus-glib-devel >= 0.71
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-doc-utils >= 0.14.0
-BuildRequires:	gnome-keyring-devel >= 3.0.0
+BuildRequires:	gnome-keyring-devel >= 3.1.5
 BuildRequires:	gnupg >= 1.4.5
-BuildRequires:	gobject-introspection-devel >= 0.6.4
 BuildRequires:	gpgme-devel >= 1:1.1.2
+BuildRequires:	glib2-devel
 BuildRequires:	gtk+3-devel >= 3.0.0
-BuildRequires:	gtk-doc >= 1.9
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libgnome-keyring-devel >= 2.26.0
-BuildRequires:	libnotify-devel >= 0.4.2
 BuildRequires:	libsoup-devel >= 2.4.0
 BuildRequires:	libtool
 BuildRequires:	openldap-devel >= 2.4.6
-BuildRequires:	pango-devel >= 1.28.2
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
-BuildRequires:	xorg-lib-libICE-devel
-BuildRequires:	xorg-lib-libSM-devel
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
 Requires:	gnupg >= 1.4.5
 Requires:	gnupg2
 Requires:	gnome-keyring >= 3.1.91
-Requires:	rarian
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -77,7 +72,6 @@ kluczami jest prowadzone przez intuicyjny interfejs.
 	--enable-pgp \
 	--disable-silent-rules \
 	--disable-schemas-compile \
-	--disable-scrollkeeper \
 	--disable-static \
 	--disable-update-mime-database
 %{__make}

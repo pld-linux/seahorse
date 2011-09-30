@@ -1,12 +1,12 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	3.1.92
+Version:	3.2.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/3.1/%{name}-%{version}.tar.xz
-# Source0-md5:	d6958de52f66185061390fc8822b4f1c
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/3.2/%{name}-%{version}.tar.xz
+# Source0-md5:	bf8f07aaa492920355c7e5a30f3b29f2
 URL:		http://www.gnome.org/projects/seahorse/
 BuildRequires:	atk-devel >= 1.32
 BuildRequires:	autoconf >= 2.52
@@ -17,7 +17,7 @@ BuildRequires:	dbus-glib-devel >= 0.71
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-doc-utils >= 0.14.0
-BuildRequires:	gnome-keyring-devel >= 3.1.5
+BuildRequires:	gnome-keyring-devel >= 3.2.0
 BuildRequires:	gnupg >= 1.4.5
 BuildRequires:	gpgme-devel >= 1:1.1.2
 BuildRequires:	glib2-devel
@@ -35,7 +35,7 @@ Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
 Requires:	gnupg >= 1.4.5
 Requires:	gnupg2
-Requires:	gnome-keyring >= 3.1.91
+Requires:	gnome-keyring >= 3.2.0
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)

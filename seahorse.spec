@@ -1,12 +1,12 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	3.2.0
+Version:	3.2.2
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/3.2/%{name}-%{version}.tar.xz
-# Source0-md5:	bf8f07aaa492920355c7e5a30f3b29f2
+# Source0-md5:	87f34a292f54e01a974695696e5dc842
 URL:		http://www.gnome.org/projects/seahorse/
 BuildRequires:	atk-devel >= 1.32
 BuildRequires:	autoconf >= 2.52
@@ -16,11 +16,11 @@ BuildRequires:	avahi-glib-devel >= 0.6
 BuildRequires:	dbus-glib-devel >= 0.71
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-devel
+BuildRequires:	glib2-devel
 BuildRequires:	gnome-doc-utils >= 0.14.0
 BuildRequires:	gnome-keyring-devel >= 3.2.0
 BuildRequires:	gnupg >= 1.4.5
 BuildRequires:	gpgme-devel >= 1:1.1.2
-BuildRequires:	glib2-devel
 BuildRequires:	gtk+3-devel >= 3.0.0
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libgnome-keyring-devel >= 2.26.0
@@ -33,9 +33,9 @@ BuildRequires:	rpmbuild(macros) >= 1.311
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
+Requires:	gnome-keyring >= 3.2.0
 Requires:	gnupg >= 1.4.5
 Requires:	gnupg2
-Requires:	gnome-keyring >= 3.2.0
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)

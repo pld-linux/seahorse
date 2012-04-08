@@ -1,27 +1,27 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	3.2.2
+Version:	3.4.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/3.2/%{name}-%{version}.tar.xz
-# Source0-md5:	87f34a292f54e01a974695696e5dc842
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/3.4/%{name}-%{version}.tar.xz
+# Source0-md5:	e2c146599c3c169202b7f195c85f931a
 URL:		http://www.gnome.org/projects/seahorse/
-BuildRequires:	atk-devel >= 1.32
-BuildRequires:	autoconf >= 2.52
-BuildRequires:	automake
+BuildRequires:	atk-devel >= 1.32.0
+BuildRequires:	autoconf >= 2.63
+BuildRequires:	automake >= 1:1.11
 BuildRequires:	avahi-devel
 BuildRequires:	avahi-glib-devel >= 0.6
 BuildRequires:	dbus-glib-devel >= 0.71
 BuildRequires:	docbook-dtd412-xml
+BuildRequires:	gcr-devel >= 3.4.0
 BuildRequires:	gettext-devel
-BuildRequires:	glib2-devel
+BuildRequires:	glib2-devel >= 1:2.16.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
-BuildRequires:	gnome-keyring-devel >= 3.2.0
 BuildRequires:	gnupg >= 1.4.5
 BuildRequires:	gpgme-devel >= 1:1.1.2
-BuildRequires:	gtk+3-devel >= 3.0.0
+BuildRequires:	gtk+3-devel >= 3.4.0
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libgnome-keyring-devel >= 2.26.0
 BuildRequires:	libsoup-devel >= 2.4.0
@@ -33,9 +33,11 @@ BuildRequires:	rpmbuild(macros) >= 1.311
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
-Requires:	gnome-keyring >= 3.2.0
+Requires:	gcr >= 3.4.0
+Requires:	gnome-keyring >= 3.4.0
 Requires:	gnupg >= 1.4.5
 Requires:	gnupg2
+Obsoletes:	gnome-keyring-manager
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -72,8 +74,7 @@ kluczami jest prowadzone przez intuicyjny interfejs.
 	--enable-pgp \
 	--disable-silent-rules \
 	--disable-schemas-compile \
-	--disable-static \
-	--disable-update-mime-database
+	--disable-static
 %{__make}
 
 %install
@@ -104,7 +105,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/seahorse/xloadimage
 %{_datadir}/%{name}
 %{_desktopdir}/seahorse.desktop
-%{_pixmapsdir}/*
 %{_iconsdir}/hicolor/*/*/*
 %{_datadir}/GConf/gsettings/org.gnome.seahorse.convert
 %{_datadir}/GConf/gsettings/org.gnome.seahorse.manager.convert

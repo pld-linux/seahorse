@@ -1,13 +1,12 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	3.4.1
-Release:	2
+Version:	3.6.1
+Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/3.4/%{name}-%{version}.tar.xz
-# Source0-md5:	0d5215a1b6d5747afe0909f4d91f53b9
-Patch0:		%{name}-build.patch
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/3.6/%{name}-%{version}.tar.xz
+# Source0-md5:	87c495a8f9dd862d1df73cc74fae7861
 URL:		http://www.gnome.org/projects/seahorse/
 BuildRequires:	atk-devel >= 1.32.0
 BuildRequires:	autoconf >= 2.63
@@ -24,7 +23,7 @@ BuildRequires:	gnupg >= 1.4.5
 BuildRequires:	gpgme-devel >= 1:1.1.2
 BuildRequires:	gtk+3-devel >= 3.4.0
 BuildRequires:	intltool >= 0.40.0
-BuildRequires:	libgnome-keyring-devel >= 2.26.0
+BuildRequires:	libsecret-devel >= 0.5
 BuildRequires:	libsoup-devel >= 2.4.0
 BuildRequires:	libtool
 BuildRequires:	openldap-devel >= 2.4.6
@@ -60,7 +59,6 @@ kluczami jest prowadzone przez intuicyjny interfejs.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__glib_gettextize}

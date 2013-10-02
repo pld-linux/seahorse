@@ -1,12 +1,12 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	3.8.2
+Version:	3.10.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/3.8/%{name}-%{version}.tar.xz
-# Source0-md5:	7b75ceef33aac972e782f09a5b1eaddf
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/3.10/%{name}-%{version}.tar.xz
+# Source0-md5:	4a4bbc546904908b7a87c9afc6982d50
 URL:		http://www.gnome.org/projects/seahorse/
 BuildRequires:	atk-devel >= 1.32.0
 BuildRequires:	autoconf >= 2.63
@@ -15,7 +15,7 @@ BuildRequires:	avahi-devel
 BuildRequires:	avahi-glib-devel >= 0.6
 BuildRequires:	dbus-glib-devel >= 0.71
 BuildRequires:	docbook-dtd412-xml
-BuildRequires:	gcr-devel >= 3.4.0
+BuildRequires:	gcr-devel >= 3.9.1
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.16.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
@@ -23,13 +23,14 @@ BuildRequires:	gnupg >= 1.4.5
 BuildRequires:	gpgme-devel >= 1:1.1.2
 BuildRequires:	gtk+3-devel >= 3.4.0
 BuildRequires:	intltool >= 0.40.0
-BuildRequires:	libsecret-devel >= 0.5
-BuildRequires:	libsoup-devel >= 2.24.0
+BuildRequires:	libsecret-devel >= 0.16
+BuildRequires:	libsoup-devel >= 2.33.92
 BuildRequires:	libtool
 BuildRequires:	openldap-devel >= 2.4.6
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
+BuildRequires:	vala >= 0.18.0
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
@@ -112,3 +113,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/glib-2.0/schemas/org.gnome.seahorse.manager.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.seahorse.window.gschema.xml
 %{_mandir}/man1/seahorse.1*
+%{_datadir}/dbus-1/services/org.gnome.seahorse.Application.service
+%{_datadir}/gnome-shell/search-providers/seahorse-search-provider.ini
+

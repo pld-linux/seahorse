@@ -1,12 +1,12 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	3.10.1
+Version:	3.10.2
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/3.10/%{name}-%{version}.tar.xz
-# Source0-md5:	898450b7d4f96dc76658ba2d2b849303
+# Source0-md5:	4ef2c41a60513c57588e71db35543022
 URL:		http://www.gnome.org/projects/seahorse/
 BuildRequires:	atk-devel >= 1.32.0
 BuildRequires:	autoconf >= 2.63

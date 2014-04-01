@@ -1,12 +1,12 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	3.10.2
+Version:	3.12.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/3.10/%{name}-%{version}.tar.xz
-# Source0-md5:	4ef2c41a60513c57588e71db35543022
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/3.12/%{name}-%{version}.tar.xz
+# Source0-md5:	9cc6e4f4ede81290ea6cc4d2f73b7b36
 URL:		http://www.gnome.org/projects/seahorse/
 BuildRequires:	atk-devel >= 1.32.0
 BuildRequires:	autoconf >= 2.63
@@ -15,7 +15,7 @@ BuildRequires:	avahi-devel
 BuildRequires:	avahi-glib-devel >= 0.6
 BuildRequires:	dbus-glib-devel >= 0.71
 BuildRequires:	docbook-dtd412-xml
-BuildRequires:	gcr-devel >= 3.9.1
+BuildRequires:	gcr-devel >= 3.11.91
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.16.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
@@ -30,11 +30,11 @@ BuildRequires:	openldap-devel >= 2.4.6
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
-BuildRequires:	vala >= 0.18.0
+BuildRequires:	vala >= 0.22.0
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
-Requires:	gcr >= 3.4.0
+Requires:	gcr >= 3.11.91
 Requires:	gnome-keyring >= 3.4.0
 Requires:	gnupg >= 1.4.5
 Requires:	gnupg2
@@ -107,6 +107,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}
 %{_desktopdir}/seahorse.desktop
 %{_iconsdir}/hicolor/*/*/*
+%{_datadir}/appdata/seahorse.appdata.xml
 %{_datadir}/GConf/gsettings/org.gnome.seahorse.convert
 %{_datadir}/GConf/gsettings/org.gnome.seahorse.manager.convert
 %{_datadir}/glib-2.0/schemas/org.gnome.seahorse.gschema.xml

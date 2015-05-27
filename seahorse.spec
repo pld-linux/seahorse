@@ -1,17 +1,17 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	3.14.1
+Version:	3.16.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/3.14/%{name}-%{version}.tar.xz
-# Source0-md5:	405bb8c67c22099bfb7b1303271ee764
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/3.16/%{name}-%{version}.tar.xz
+# Source0-md5:	3416abb33183285a5e69fe0a058c39de
 URL:		http://www.gnome.org/projects/seahorse/
 BuildRequires:	atk-devel >= 1.32.0
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11
-BuildRequires:	avahi-devel
+BuildRequires:	avahi-devel >= 0.6
 BuildRequires:	avahi-glib-devel >= 0.6
 BuildRequires:	dbus-glib-devel >= 0.71
 BuildRequires:	docbook-dtd412-xml
@@ -25,13 +25,13 @@ BuildRequires:	gtk+3-devel >= 3.4.0
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libsecret-devel >= 0.16
 BuildRequires:	libsoup-devel >= 2.33.92
-BuildRequires:	libtool
 BuildRequires:	openldap-devel >= 2.4.6
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
-BuildRequires:	vala >= 0.22.0
+BuildRequires:	vala >= 2:0.22.0
 BuildRequires:	vala-gcr >= 3.12.0
+BuildRequires:	yelp-tools
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
@@ -39,6 +39,8 @@ Requires:	gcr >= 3.12.0
 Requires:	gnome-keyring >= 3.4.0
 Requires:	gnupg >= 1.4.5
 Requires:	gnupg2
+Requires:	gtk+3 >= 3.4.0
+Requires:	libsecret >= 0.16
 Obsoletes:	gnome-keyring-manager
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
@@ -107,14 +109,14 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/seahorse/xloadimage
 %{_datadir}/%{name}
 %{_desktopdir}/seahorse.desktop
-%{_iconsdir}/hicolor/*/*/*
+%{_iconsdir}/hicolor/*x*/apps/seahorse*.png
+%{_iconsdir}/hicolor/symbolic/apps/seahorse-symbolic.svg
 %{_datadir}/appdata/seahorse.appdata.xml
 %{_datadir}/GConf/gsettings/org.gnome.seahorse.convert
 %{_datadir}/GConf/gsettings/org.gnome.seahorse.manager.convert
+%{_datadir}/dbus-1/services/org.gnome.seahorse.Application.service
 %{_datadir}/glib-2.0/schemas/org.gnome.seahorse.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.seahorse.manager.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.seahorse.window.gschema.xml
-%{_mandir}/man1/seahorse.1*
-%{_datadir}/dbus-1/services/org.gnome.seahorse.Application.service
 %{_datadir}/gnome-shell/search-providers/seahorse-search-provider.ini
-
+%{_mandir}/man1/seahorse.1*

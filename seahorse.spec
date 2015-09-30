@@ -1,12 +1,12 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	3.16.0
+Version:	3.18.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/3.16/%{name}-%{version}.tar.xz
-# Source0-md5:	3416abb33183285a5e69fe0a058c39de
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/3.18/%{name}-%{version}.tar.xz
+# Source0-md5:	758204ac248e1fb3b3767ce84d2795b4
 URL:		http://www.gnome.org/projects/seahorse/
 BuildRequires:	atk-devel >= 1.32.0
 BuildRequires:	autoconf >= 2.63
@@ -19,7 +19,7 @@ BuildRequires:	gcr-devel >= 3.12.0
 BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.16.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
-BuildRequires:	gnupg >= 1.4.5
+BuildRequires:	gnupg2 >= 2.0.12
 BuildRequires:	gpgme-devel >= 1:1.1.2
 BuildRequires:	gtk+3-devel >= 3.4.0
 BuildRequires:	intltool >= 0.40.0
@@ -37,8 +37,7 @@ Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
 Requires:	gcr >= 3.12.0
 Requires:	gnome-keyring >= 3.4.0
-Requires:	gnupg >= 1.4.5
-Requires:	gnupg2
+Requires:	gnupg2 >= 2.0.12
 Requires:	gtk+3 >= 3.4.0
 Requires:	libsecret >= 0.16
 Obsoletes:	gnome-keyring-manager

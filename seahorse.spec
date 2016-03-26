@@ -1,12 +1,12 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	3.18.0
+Version:	3.20.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/3.18/%{name}-%{version}.tar.xz
-# Source0-md5:	758204ac248e1fb3b3767ce84d2795b4
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/3.20/%{name}-%{version}.tar.xz
+# Source0-md5:	06cdf9805d9d1adddd0140d13f1bd234
 URL:		http://www.gnome.org/projects/seahorse/
 BuildRequires:	atk-devel >= 1.32.0
 BuildRequires:	autoconf >= 2.63
@@ -76,8 +76,7 @@ kluczami jest prowadzone przez intuicyjny interfejs.
 	SSH_PATH=%{_bindir}/ssh \
 	--enable-pgp \
 	--disable-silent-rules \
-	--disable-schemas-compile \
-	--disable-static
+	--disable-schemas-compile
 %{__make}
 
 %install

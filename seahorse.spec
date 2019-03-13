@@ -1,12 +1,12 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	3.30.1.1
+Version:	3.32
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/3.30/%{name}-%{version}.tar.xz
-# Source0-md5:	dedeaa4118e68d7c693a936cbabcd434
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/3.32/%{name}-%{version}.tar.xz
+# Source0-md5:	e96c71cfb24c8a449f87103432dde8a4
 URL:		http://www.gnome.org/projects/seahorse/
 BuildRequires:	avahi-devel >= 0.6
 BuildRequires:	avahi-glib-devel >= 0.6
@@ -19,6 +19,7 @@ BuildRequires:	gnupg2 >= 2.0.12
 BuildRequires:	gpgme-devel >= 1:1.7.0
 BuildRequires:	gtk+3-devel >= 3.22.0
 BuildRequires:	intltool >= 0.40.0
+BuildRequires:	libpwquality-devel
 BuildRequires:	libsecret-devel >= 0.16
 BuildRequires:	libsoup-devel >= 2.33.92
 BuildRequires:	meson >= 0.42
@@ -101,10 +102,11 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libexecdir}/seahorse/ssh-askpass
 %attr(755,root,root) %{_libexecdir}/seahorse/xloadimage
 %{_datadir}/%{name}
-%{_desktopdir}/seahorse.desktop
+%{_desktopdir}/org.gnome.seahorse.Application.desktop
 %{_iconsdir}/hicolor/*x*/apps/seahorse*.png
-%{_iconsdir}/hicolor/symbolic/apps/seahorse-symbolic.svg
-%{_datadir}/metainfo/seahorse.appdata.xml
+%{_iconsdir}/hicolor/scalable/apps/org.gnome.seahorse.Application.svg
+%{_iconsdir}/hicolor/symbolic/apps/org.gnome.seahorse.Application-symbolic.svg
+%{_datadir}/metainfo/org.gnome.seahorse.Application.appdata.xml
 %{_datadir}/dbus-1/services/org.gnome.seahorse.Application.service
 %{_datadir}/glib-2.0/schemas/org.gnome.seahorse.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.seahorse.manager.gschema.xml

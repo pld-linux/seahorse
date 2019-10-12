@@ -18,12 +18,11 @@ BuildRequires:	glib2-devel >= 1:2.44.0
 BuildRequires:	gnupg2 >= 2.0.12
 BuildRequires:	gpgme-devel >= 1:1.7.0
 BuildRequires:	gtk+3-devel >= 3.22.0
-BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libpwquality-devel
 BuildRequires:	libsecret-devel >= 0.16
 BuildRequires:	libsoup-devel >= 2.33.92
 BuildRequires:	meson >= 0.49
-BuildRequires:	ninja
+BuildRequires:	ninja >= 1.5
 BuildRequires:	openldap-devel >= 2.4.6
 # ssh-keygen bin path
 BuildRequires:	openssh
@@ -31,7 +30,7 @@ BuildRequires:	openssh
 BuildRequires:	openssh-clients
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
-BuildRequires:	rpmbuild(macros) >= 1.727
+BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	vala >= 2:0.22.0
 BuildRequires:	vala-gcr >= 3.12.0
 BuildRequires:	vala-gcr-ui >= 3.12.0
@@ -75,12 +74,13 @@ kluczami jest prowadzone przez intuicyjny interfejs.
 %meson build \
 	-Dpgp-support=true \
 	-Dmanpage=true
-%meson_build -C build
+
+%ninja_build -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%meson_install -C build
+%ninja_install -C build
 
 %find_lang %{name} --with-gnome
 

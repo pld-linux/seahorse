@@ -1,13 +1,13 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	3.34
+Version:	3.34.1
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/3.34/%{name}-%{version}.tar.xz
-# Source0-md5:	28a89ea524e13fc04605943ba5d0d413
-URL:		http://www.gnome.org/projects/seahorse/
+# Source0-md5:	84d99d9bb5aefc5f2bb4458d4baf4f41
+URL:		https://wiki.gnome.org/Apps/Seahorse
 BuildRequires:	avahi-devel >= 0.6
 BuildRequires:	avahi-glib-devel >= 0.6
 BuildRequires:	docbook-dtd412-xml
@@ -31,10 +31,12 @@ BuildRequires:	openssh-clients
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.736
+BuildRequires:	tar >= 1:1.22
 BuildRequires:	vala >= 2:0.22.0
 BuildRequires:	vala-gcr >= 3.12.0
 BuildRequires:	vala-gcr-ui >= 3.12.0
 BuildRequires:	vala-libsecret >= 0.16
+BuildRequires:	xz
 BuildRequires:	yelp-tools
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	gtk-update-icon-cache

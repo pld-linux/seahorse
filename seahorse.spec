@@ -1,12 +1,12 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	3.34.1
+Version:	3.36
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/3.34/%{name}-%{version}.tar.xz
-# Source0-md5:	84d99d9bb5aefc5f2bb4458d4baf4f41
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/3.36/%{name}-%{version}.tar.xz
+# Source0-md5:	003a6e01f54bf98c4fb3baa0409af8de
 URL:		https://wiki.gnome.org/Apps/Seahorse
 BuildRequires:	avahi-devel >= 0.6
 BuildRequires:	avahi-glib-devel >= 0.6
@@ -18,10 +18,11 @@ BuildRequires:	glib2-devel >= 1:2.44.0
 BuildRequires:	gnupg2 >= 2.0.12
 BuildRequires:	gpgme-devel >= 1:1.7.0
 BuildRequires:	gtk+3-devel >= 3.22.0
+BuildRequires:	libhandy-devel >= 0.0.12
 BuildRequires:	libpwquality-devel
 BuildRequires:	libsecret-devel >= 0.16
 BuildRequires:	libsoup-devel >= 2.33.92
-BuildRequires:	meson >= 0.49
+BuildRequires:	meson >= 0.51
 BuildRequires:	ninja >= 1.5
 BuildRequires:	openldap-devel >= 2.4.6
 # ssh-keygen bin path
@@ -35,6 +36,7 @@ BuildRequires:	tar >= 1:1.22
 BuildRequires:	vala >= 2:0.22.0
 BuildRequires:	vala-gcr >= 3.12.0
 BuildRequires:	vala-gcr-ui >= 3.12.0
+BuildRequires:	vala-libhandy >= 0.0.12
 BuildRequires:	vala-libsecret >= 0.16
 BuildRequires:	xz
 BuildRequires:	yelp-tools
@@ -47,6 +49,7 @@ Requires:	gnome-keyring >= 3.4.0
 Requires:	gnupg2 >= 2.0.12
 Requires:	gpgme >= 1:1.7.0
 Requires:	gtk+3 >= 3.22.0
+Requires:	libhandy >= 0.0.12
 Requires:	libsecret >= 0.16
 Requires:	libsoup >= 2.33.92
 Obsoletes:	gnome-keyring-manager

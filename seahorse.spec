@@ -2,7 +2,7 @@ Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
 Version:	3.36.2
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/3.36/%{name}-%{version}.tar.xz
@@ -52,6 +52,7 @@ Requires:	gtk+3 >= 3.22.0
 Requires:	libhandy >= 0.0.12
 Requires:	libsecret >= 0.16
 Requires:	libsoup >= 2.33.92
+Suggests:	%{name}-gnome-shell-search
 Obsoletes:	gnome-keyring-manager
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
@@ -71,6 +72,31 @@ to narzędzie do bezpiecznego komunikowania i przechowywania danych.
 Szyfrowanie danych i tworzenie cyfrowego podpisu może być łatwo
 realizowane poprzez graficzny interfejs użytkownika, a zarządzanie
 kluczami jest prowadzone przez intuicyjny interfejs.
+
+%package        gnome-shell-search
+Summary:	Package provideing seahorse support in gnome shell search
+Summary(pl.UTF-8):	Pakiet pozwalający przeszukiwanie seahorse z poziomu wyszukiwarki gnome shell
+Group:		X11/Applications
+Requires:	%{name} = %{version}-%{release}
+
+%description    gnome-shell-search
+Seahorse is a GNOME front end for GnuPG - the Gnu Privacy Guard
+program. It is a tool for secure communications and data storage. Data
+encryption and digital signature creation can easily be performed
+through a GUI and Key Management operations can easily be carried out
+through an intuitive interface. Both English and Japanese is support
+is provided.
+
+This package integrates Seahorse with gnome shell search tool.
+
+%description	gnome-shell-search -l pl.UTF-8
+Seahorse to frontend GNOME do programu GnuPG - Gnu Privacy Guard. Jest
+to narzędzie do bezpiecznego komunikowania i przechowywania danych.
+Szyfrowanie danych i tworzenie cyfrowego podpisu może być łatwo
+realizowane poprzez graficzny interfejs użytkownika, a zarządzanie
+kluczami jest prowadzone przez intuicyjny interfejs.
+
+Ten pakiet integruje Seahorse z wyszukiwarką gnome shell
 
 %prep
 %setup -q
@@ -116,5 +142,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/glib-2.0/schemas/org.gnome.seahorse.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.seahorse.manager.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.seahorse.window.gschema.xml
-%{_datadir}/gnome-shell/search-providers/seahorse-search-provider.ini
 %{_mandir}/man1/seahorse.1*
+
+%files gnome-shell-search
+%defattr(644,root,root,755)
+%{_datadir}/gnome-shell/search-providers/seahorse-search-provider.ini

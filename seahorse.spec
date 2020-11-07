@@ -1,12 +1,13 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	3.36.2
-Release:	2
+Version:	3.38.0
+Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/seahorse/3.36/%{name}-%{version}.tar.xz
-# Source0-md5:	bee21a43b1d5c416fd22d01512e99807
+Source0:	https://download.gnome.org/sources/seahorse/3.38/%{name}-%{version}.tar.xz
+# Source0-md5:	776d8c3912b3aec1ee764d17a0d4c7d9
+Patch0:		%{name}-libhandy.patch
 URL:		https://wiki.gnome.org/Apps/Seahorse
 BuildRequires:	avahi-devel >= 0.6
 BuildRequires:	avahi-glib-devel >= 0.6
@@ -14,11 +15,11 @@ BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gcr-devel >= 3.12.0
 BuildRequires:	gcr-ui-devel >= 3.12.0
 BuildRequires:	gettext-tools
-BuildRequires:	glib2-devel >= 1:2.44.0
+BuildRequires:	glib2-devel >= 1:2.58
 BuildRequires:	gnupg2 >= 2.0.12
 BuildRequires:	gpgme-devel >= 1:1.7.0
 BuildRequires:	gtk+3-devel >= 3.22.0
-BuildRequires:	libhandy-devel >= 0.0.12
+BuildRequires:	libhandy1-devel >= 1.0.0
 BuildRequires:	libpwquality-devel
 BuildRequires:	libsecret-devel >= 0.16
 BuildRequires:	libsoup-devel >= 2.33.92
@@ -36,7 +37,7 @@ BuildRequires:	tar >= 1:1.22
 BuildRequires:	vala >= 2:0.22.0
 BuildRequires:	vala-gcr >= 3.12.0
 BuildRequires:	vala-gcr-ui >= 3.12.0
-BuildRequires:	vala-libhandy >= 0.0.12
+BuildRequires:	vala-libhandy1 >= 1.0.0
 BuildRequires:	vala-libsecret >= 0.16
 BuildRequires:	xz
 BuildRequires:	yelp-tools
@@ -44,12 +45,12 @@ Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
 Requires:	gcr >= 3.12.0
-Requires:	glib2 >= 1:2.44.0
+Requires:	glib2 >= 1:2.58
 Requires:	gnome-keyring >= 3.4.0
 Requires:	gnupg2 >= 2.0.12
 Requires:	gpgme >= 1:1.7.0
 Requires:	gtk+3 >= 3.22.0
-Requires:	libhandy >= 0.0.12
+Requires:	libhandy1 >= 1.0.0
 Requires:	libsecret >= 0.16
 Requires:	libsoup >= 2.33.92
 Suggests:	%{name}-gnome-shell-search
@@ -100,6 +101,7 @@ Ten pakiet integruje Seahorse z wyszukiwarką gnome shell
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %meson build \

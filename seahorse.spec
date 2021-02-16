@@ -1,13 +1,12 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	3.38.0
+Version:	3.38.1
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	https://download.gnome.org/sources/seahorse/3.38/%{name}-%{version}.tar.xz
-# Source0-md5:	776d8c3912b3aec1ee764d17a0d4c7d9
-Patch0:		%{name}-libhandy.patch
+# Source0-md5:	e9d710e7c0282e6680869f48bf0a71d2
 URL:		https://wiki.gnome.org/Apps/Seahorse
 BuildRequires:	avahi-devel >= 0.6
 BuildRequires:	avahi-glib-devel >= 0.6
@@ -55,8 +54,6 @@ Requires:	libsecret >= 0.16
 Requires:	libsoup >= 2.33.92
 Suggests:	%{name}-gnome-shell-search
 Obsoletes:	gnome-keyring-manager
-# sr@Latn vs. sr@latin
-Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -101,7 +98,6 @@ Ten pakiet integruje Seahorse z wyszukiwarką gnome shell
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %meson build \

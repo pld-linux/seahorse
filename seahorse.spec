@@ -1,24 +1,24 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	3.38.1
+Version:	40.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	https://download.gnome.org/sources/seahorse/3.38/%{name}-%{version}.tar.xz
-# Source0-md5:	e9d710e7c0282e6680869f48bf0a71d2
+Source0:	https://download.gnome.org/sources/seahorse/40/%{name}-%{version}.tar.xz
+# Source0-md5:	c6c11d77e64c4efc31f02c7127327be8
 URL:		https://wiki.gnome.org/Apps/Seahorse
 BuildRequires:	avahi-devel >= 0.6
 BuildRequires:	avahi-glib-devel >= 0.6
 BuildRequires:	docbook-dtd412-xml
-BuildRequires:	gcr-devel >= 3.12.0
-BuildRequires:	gcr-ui-devel >= 3.12.0
+BuildRequires:	gcr-devel >= 3.38
+BuildRequires:	gcr-ui-devel >= 3.38
 BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.58
-BuildRequires:	gnupg2 >= 2.0.12
-BuildRequires:	gpgme-devel >= 1:1.7.0
-BuildRequires:	gtk+3-devel >= 3.22.0
-BuildRequires:	libhandy1-devel >= 1.0.0
+BuildRequires:	gnupg2 >= 2.2.0
+BuildRequires:	gpgme-devel >= 1:1.14.0
+BuildRequires:	gtk+3-devel >= 3.24.0
+BuildRequires:	libhandy1-devel >= 1.1.0
 BuildRequires:	libpwquality-devel
 BuildRequires:	libsecret-devel >= 0.16
 BuildRequires:	libsoup-devel >= 2.33.92
@@ -34,22 +34,22 @@ BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	vala >= 2:0.22.0
-BuildRequires:	vala-gcr >= 3.12.0
-BuildRequires:	vala-gcr-ui >= 3.12.0
-BuildRequires:	vala-libhandy1 >= 1.0.0
+BuildRequires:	vala-gcr >= 3.38
+BuildRequires:	vala-gcr-ui >= 3.38
+BuildRequires:	vala-libhandy1 >= 1.1.0
 BuildRequires:	vala-libsecret >= 0.16
 BuildRequires:	xz
 BuildRequires:	yelp-tools
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
-Requires:	gcr >= 3.12.0
+Requires:	gcr >= 3.38
 Requires:	glib2 >= 1:2.58
 Requires:	gnome-keyring >= 3.4.0
-Requires:	gnupg2 >= 2.0.12
-Requires:	gpgme >= 1:1.7.0
-Requires:	gtk+3 >= 3.22.0
-Requires:	libhandy1 >= 1.0.0
+Requires:	gnupg2 >= 2.2.0
+Requires:	gpgme >= 1:1.14.0
+Requires:	gtk+3 >= 3.24.0
+Requires:	libhandy1 >= 1.1.0
 Requires:	libsecret >= 0.16
 Requires:	libsoup >= 2.33.92
 Suggests:	%{name}-gnome-shell-search
@@ -71,13 +71,13 @@ Szyfrowanie danych i tworzenie cyfrowego podpisu może być łatwo
 realizowane poprzez graficzny interfejs użytkownika, a zarządzanie
 kluczami jest prowadzone przez intuicyjny interfejs.
 
-%package        gnome-shell-search
+%package gnome-shell-search
 Summary:	Package provideing seahorse support in gnome shell search
 Summary(pl.UTF-8):	Pakiet pozwalający przeszukiwanie seahorse z poziomu wyszukiwarki gnome shell
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
 
-%description    gnome-shell-search
+%description gnome-shell-search
 Seahorse is a GNOME front end for GnuPG - the Gnu Privacy Guard
 program. It is a tool for secure communications and data storage. Data
 encryption and digital signature creation can easily be performed
@@ -87,7 +87,7 @@ is provided.
 
 This package integrates Seahorse with gnome shell search tool.
 
-%description	gnome-shell-search -l pl.UTF-8
+%description gnome-shell-search -l pl.UTF-8
 Seahorse to frontend GNOME do programu GnuPG - Gnu Privacy Guard. Jest
 to narzędzie do bezpiecznego komunikowania i przechowywania danych.
 Szyfrowanie danych i tworzenie cyfrowego podpisu może być łatwo

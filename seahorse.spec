@@ -1,12 +1,12 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	40.0
+Version:	41.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	https://download.gnome.org/sources/seahorse/40/%{name}-%{version}.tar.xz
-# Source0-md5:	c6c11d77e64c4efc31f02c7127327be8
+Source0:	https://download.gnome.org/sources/seahorse/41/%{name}-%{version}.tar.xz
+# Source0-md5:	75b057a0e9b3ee7468464f4c0713a341
 URL:		https://wiki.gnome.org/Apps/Seahorse
 BuildRequires:	avahi-devel >= 0.6
 BuildRequires:	avahi-glib-devel >= 0.6
@@ -14,7 +14,7 @@ BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gcr-devel >= 3.38
 BuildRequires:	gcr-ui-devel >= 3.38
 BuildRequires:	gettext-tools
-BuildRequires:	glib2-devel >= 1:2.58
+BuildRequires:	glib2-devel >= 1:2.66
 BuildRequires:	gnupg2 >= 2.2.0
 BuildRequires:	gpgme-devel >= 1:1.14.0
 BuildRequires:	gtk+3-devel >= 3.24.0
@@ -30,6 +30,7 @@ BuildRequires:	openssh
 # ssh bin path
 BuildRequires:	openssh-clients
 BuildRequires:	pkgconfig
+BuildRequires:	rpm-build >= 4.6
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	tar >= 1:1.22
@@ -44,7 +45,7 @@ Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
 Requires:	gcr >= 3.38
-Requires:	glib2 >= 1:2.58
+Requires:	glib2 >= 1:2.66
 Requires:	gnome-keyring >= 3.4.0
 Requires:	gnupg2 >= 2.2.0
 Requires:	gpgme >= 1:1.14.0
@@ -53,7 +54,7 @@ Requires:	libhandy1 >= 1.1.0
 Requires:	libsecret >= 0.16
 Requires:	libsoup >= 2.33.92
 Suggests:	%{name}-gnome-shell-search
-Obsoletes:	gnome-keyring-manager
+Obsoletes:	gnome-keyring-manager < 3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -76,6 +77,7 @@ Summary:	Package provideing seahorse support in gnome shell search
 Summary(pl.UTF-8):	Pakiet pozwalający przeszukiwanie seahorse z poziomu wyszukiwarki gnome shell
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
+BuildArch:	noarch
 
 %description gnome-shell-search
 Seahorse is a GNOME front end for GnuPG - the Gnu Privacy Guard

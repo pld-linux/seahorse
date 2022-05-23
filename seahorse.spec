@@ -1,12 +1,12 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	41.0
+Version:	42.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	https://download.gnome.org/sources/seahorse/41/%{name}-%{version}.tar.xz
-# Source0-md5:	75b057a0e9b3ee7468464f4c0713a341
+Source0:	https://download.gnome.org/sources/seahorse/42/%{name}-%{version}.tar.xz
+# Source0-md5:	522fb61d05d523bd42fb77eb7f59b42f
 URL:		https://wiki.gnome.org/Apps/Seahorse
 BuildRequires:	avahi-devel >= 0.6
 BuildRequires:	avahi-glib-devel >= 0.6
@@ -18,7 +18,7 @@ BuildRequires:	glib2-devel >= 1:2.66
 BuildRequires:	gnupg2 >= 2.2.0
 BuildRequires:	gpgme-devel >= 1:1.14.0
 BuildRequires:	gtk+3-devel >= 3.24.0
-BuildRequires:	libhandy1-devel >= 1.1.0
+BuildRequires:	libhandy1-devel >= 1.5.0
 BuildRequires:	libpwquality-devel
 BuildRequires:	libsecret-devel >= 0.16
 BuildRequires:	libsoup-devel >= 2.33.92
@@ -37,7 +37,7 @@ BuildRequires:	tar >= 1:1.22
 BuildRequires:	vala >= 2:0.22.0
 BuildRequires:	vala-gcr >= 3.38
 BuildRequires:	vala-gcr-ui >= 3.38
-BuildRequires:	vala-libhandy1 >= 1.1.0
+BuildRequires:	vala-libhandy1 >= 1.5.0
 BuildRequires:	vala-libsecret >= 0.16
 BuildRequires:	xz
 BuildRequires:	yelp-tools
@@ -50,7 +50,7 @@ Requires:	gnome-keyring >= 3.4.0
 Requires:	gnupg2 >= 2.2.0
 Requires:	gpgme >= 1:1.14.0
 Requires:	gtk+3 >= 3.24.0
-Requires:	libhandy1 >= 1.1.0
+Requires:	libhandy1 >= 1.5.0
 Requires:	libsecret >= 0.16
 Requires:	libsoup >= 2.33.92
 Suggests:	%{name}-gnome-shell-search

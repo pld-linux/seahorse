@@ -46,7 +46,7 @@ Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
 Requires:	gcr >= 3.38
 Requires:	glib2 >= 1:2.66
-Requires:	gnome-keyring >= 3.4.0
+Requires:	gnome-keyring >= 42.0
 Requires:	gnupg2 >= 2.2.0
 Requires:	gpgme >= 1:1.14.0
 Requires:	gtk+3 >= 3.24.0

@@ -1,12 +1,13 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	42.0
+Version:	43.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	https://download.gnome.org/sources/seahorse/42/%{name}-%{version}.tar.xz
-# Source0-md5:	522fb61d05d523bd42fb77eb7f59b42f
+Source0:	https://download.gnome.org/sources/seahorse/43/%{name}-%{version}.tar.xz
+# Source0-md5:	efa9fea2e1c4291c39d509eb366b9a56
+Patch0:		%{name}-gnupg.patch
 URL:		https://wiki.gnome.org/Apps/Seahorse
 BuildRequires:	avahi-devel >= 0.6
 BuildRequires:	avahi-glib-devel >= 0.6
@@ -18,11 +19,11 @@ BuildRequires:	glib2-devel >= 1:2.66
 BuildRequires:	gnupg2 >= 2.2.0
 BuildRequires:	gpgme-devel >= 1:1.14.0
 BuildRequires:	gtk+3-devel >= 3.24.0
-BuildRequires:	libhandy1-devel >= 1.5.0
+BuildRequires:	libhandy1-devel >= 1.6.0
 BuildRequires:	libpwquality-devel
 BuildRequires:	libsecret-devel >= 0.16
-BuildRequires:	libsoup-devel >= 2.33.92
-BuildRequires:	meson >= 0.51
+BuildRequires:	libsoup3-devel >= 3.0
+BuildRequires:	meson >= 0.59
 BuildRequires:	ninja >= 1.5
 BuildRequires:	openldap-devel >= 2.4.6
 # ssh-keygen bin path
@@ -37,7 +38,7 @@ BuildRequires:	tar >= 1:1.22
 BuildRequires:	vala >= 2:0.22.0
 BuildRequires:	vala-gcr >= 3.38
 BuildRequires:	vala-gcr-ui >= 3.38
-BuildRequires:	vala-libhandy1 >= 1.5.0
+BuildRequires:	vala-libhandy1 >= 1.6.0
 BuildRequires:	vala-libsecret >= 0.16
 BuildRequires:	xz
 BuildRequires:	yelp-tools
@@ -50,9 +51,9 @@ Requires:	gnome-keyring >= 42.0
 Requires:	gnupg2 >= 2.2.0
 Requires:	gpgme >= 1:1.14.0
 Requires:	gtk+3 >= 3.24.0
-Requires:	libhandy1 >= 1.5.0
+Requires:	libhandy1 >= 1.6.0
 Requires:	libsecret >= 0.16
-Requires:	libsoup >= 2.33.92
+Requires:	libsoup3 >= 3.0
 Suggests:	%{name}-gnome-shell-search
 Obsoletes:	gnome-keyring-manager < 3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -100,9 +101,11 @@ Ten pakiet integruje Seahorse z wyszukiwarką gnome shell
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %meson build \
+	-Dkey-sharing=true \
 	-Dpgp-support=true \
 	-Dmanpage=true
 
@@ -128,7 +131,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS NEWS README.md
+%doc NEWS README.md
 %attr(755,root,root) %{_bindir}/seahorse
 %dir %{_libexecdir}/seahorse
 %attr(755,root,root) %{_libexecdir}/seahorse/ssh-askpass

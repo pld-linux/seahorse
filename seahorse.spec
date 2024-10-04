@@ -1,13 +1,12 @@
 Summary:	Seahorse - A GNOME front end for GnuPG
 Summary(pl.UTF-8):	Seahorse - frontend GNOME do GnuPG
 Name:		seahorse
-Version:	43.0
+Version:	47.0.1
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	https://download.gnome.org/sources/seahorse/43/%{name}-%{version}.tar.xz
-# Source0-md5:	efa9fea2e1c4291c39d509eb366b9a56
-Patch0:		%{name}-gnupg.patch
+Source0:	https://download.gnome.org/sources/seahorse/47/%{name}-%{version}.tar.xz
+# Source0-md5:	18cd36abd8d2e25c236934be64c8b916
 URL:		https://wiki.gnome.org/Apps/Seahorse
 BuildRequires:	avahi-devel >= 0.6
 BuildRequires:	avahi-glib-devel >= 0.6
@@ -101,7 +100,6 @@ Ten pakiet integruje Seahorse z wyszukiwarką gnome shell
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %meson build \
@@ -139,7 +137,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}
 %{_desktopdir}/org.gnome.seahorse.Application.desktop
 %{_iconsdir}/hicolor/scalable/apps/org.gnome.seahorse.Application.svg
-%{_iconsdir}/hicolor/symbolic/apps/org.gnome.seahorse.Application-symbolic.svg
+%{_iconsdir}/hicolor/symbolic/apps/org.gnome.seahorse.Application.svg
 %{_datadir}/metainfo/org.gnome.seahorse.Application.appdata.xml
 %{_datadir}/dbus-1/services/org.gnome.seahorse.Application.service
 %{_datadir}/glib-2.0/schemas/org.gnome.seahorse.gschema.xml

@@ -104,17 +104,17 @@ Ten pakiet integruje Seahorse z wyszukiwarką gnome shell
 %patch -P0 -p1
 
 %build
-%meson build \
+%meson \
 	-Dkey-sharing=true \
 	-Dpgp-support=true \
 	-Dmanpage=true
 
-%ninja_build -C build
+%meson_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%ninja_install -C build
+%meson_install
 
 # not supported by glibc (as of 2.40)
 %{__rm} -r $RPM_BUILD_ROOT%{_localedir}/ie

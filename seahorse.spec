@@ -8,6 +8,7 @@ Group:		X11/Applications
 Source0:	https://download.gnome.org/sources/seahorse/47/%{name}-%{version}.tar.xz
 # Source0-md5:	18cd36abd8d2e25c236934be64c8b916
 Patch0:		no-cache-update.patch
+Patch1:		gpgme2.patch
 URL:		https://wiki.gnome.org/Apps/Seahorse
 BuildRequires:	avahi-devel >= 0.6
 BuildRequires:	avahi-glib-devel >= 0.6
@@ -102,6 +103,7 @@ Ten pakiet integruje Seahorse z wyszukiwarką gnome shell
 %prep
 %setup -q
 %patch -P0 -p1
+%patch -P1 -p1
 
 %build
 %meson \
